@@ -24,12 +24,12 @@ public class DeClass {
     
     public int checkDB(String qs, String op) throws Exception{
         try {
-            ResultSet rs = connDB.chonDuLieuTuDTB("SELECT * FROM `nganhangcauhoi` WHERE `ID` = " + qs);
-        String da = rs.getString(8);
-        if(op.equals(da)){ 
-            return 1;
-        };
-        } catch (Exception e) {
+            ResultSet rs = connDB.chonDuLieuTuDTB("SELECT * FROM nganhangcauhoi WHERE ID = '" + qs +"' and dapan = '" + op+"'");
+            if(rs.next()){ 
+                return 1;
+                };
+            } 
+        catch (Exception e) {
         }
         return 0;
     }

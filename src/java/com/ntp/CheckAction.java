@@ -394,7 +394,8 @@ public class CheckAction {
         int i = 0;
         String[] cauhoi = {qs1,qs2,qs3,qs4,qs5,qs6,qs7,qs8,qs9,qs10,qs11,qs12,qs13,qs14,qs15,qs16,qs17,qs18,qs19,qs20};
         String[] dapan = {op1,op2,op3,op4,op5,op6,op7,op8,op9,op10,op11,op12,op13,op14,op15,op16,op17,op18,op19,op20};
-        while(cauhoi[i] != null && dapan[i] != null) {
+        
+        while(i <19 && cauhoi[i] != null && dapan[i] != null) {
             diem = diem + de.checkDB(cauhoi[i], dapan[i]);
             i++;
         }
