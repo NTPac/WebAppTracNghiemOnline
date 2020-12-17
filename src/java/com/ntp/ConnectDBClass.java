@@ -36,20 +36,21 @@ public class ConnectDBClass {
         catch(Exception e){}
         return conn;
     }
-    public void thucThiCauLenhSQL(String sql) throws Exception{
+    public boolean thucThiCauLenhSQL(String sql) throws Exception{
+            try{
 		Connection connect =connect();
 		Statement stmt = connect.createStatement();
 		stmt.executeUpdate(sql);
+                return true;
+            }
+            catch(Exception ex){}
+            return false;
 	}
     public ResultSet chonDuLieuTuDTB(String sql) throws Exception{
 		Connection connect = connect();
 		Statement stmt = connect.createStatement();
 		ResultSet rs =stmt.executeQuery(sql);
 		return rs;
-	}
-    public static void main(String[] args) throws Exception {
-		ConnectDBClass connect = new ConnectDBClass();
-		System.out.println(connect.connect());
 	}
     
     

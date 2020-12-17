@@ -24,7 +24,23 @@
   <link rel="stylesheet" href="plugins/datepicker/datepicker3.css">
   <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
   <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-    <link rel="icon" href="dist/img/icon.png">
+  <link rel="icon" href="dist/img/icon.png">
+  <%
+	ConnectDBClass con = new ConnectDBClass();
+	ResultSet rs = con.chonDuLieuTuDTB("SELECT * FROM `account` WHERE `IDUser` = '123123'");
+        String anhString = null;
+        if(rs.next()){
+            if (rs.getString(8) != null){
+                anhString = "<img src='data:image/jpeg;base64,"+rs.getString(8)+"' class='user-image' alt='"+rs.getString(2)+"' title='"+rs.getString(2)+"'>";
+            }
+            else{
+                if(rs.getString(3).equals("Male")){
+                    anhString = "<img src='dist/img/avatar.png' class='user-image' alt='"+rs.getString(2)+"' title='"+rs.getString(2)+"'>";
+                }else{
+                    anhString = "<img src='dist/img/avatar3.png' class='user-image' alt='"+rs.getString(2)+"' title='"+rs.getString(2)+"'>";}
+            }
+        }
+                %>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -38,46 +54,10 @@
       <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
         <span class="sr-only">Toggle navigation</span>
       </a>
-
-      <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
-          <li class="dropdown user user-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-								  <%
-	ConnectDBClass con = new ConnectDBClass();
-	ResultSet rs = con.chonDuLieuTuDTB("SELECT * FROM `account` WHERE `IDUser` = '123123'");
-        String anhString = null;
-        if(rs.next()){
-            if (rs.getString(8) != null){
-                anhString = "<img src='data:image/jpeg;base64,"+rs.getString(8)+"' class='user-image' alt='"+rs.getString(2)+"' title='"+rs.getString(2)+"'>";
-            }
-            else{
-                if(rs.getString(3) == "Male" ){
-                    anhString = "<img src='dist/img/avatar.png' class='user-image' alt='"+rs.getString(2)+"' title='"+rs.getString(2)+"'>";
-                }else{
-                    anhString = "<img src='dist/img/avatar3.png' class='user-image' alt='"+rs.getString(2)+"' title='"+rs.getString(2)+"'>";}
-            }
-        }
-                %>        
-              <p>
-                  <%=rs.getString(2)%>
-                  <small><<%=rs.getString(1)%> , Student</small>
-                </p>
-              </li>
-          
-              <li class="user-footer">
-                <div class="pull-left">
-                  <a href="./" class="btn btn-default btn-flat">Profile</a>
-                </div>
-                <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
-                </div>
-              </li>
-            </ul>
-          </li>
-   
-        </ul>
-      </div>
+        <div stype=" align-items: center;">
+            <a href="logout.php" class="btn btn-default btn-flat" >Sign out</a>
+        </div>  
+      
     </nav>
   </header>
   <aside class="main-sidebar">
@@ -97,27 +77,24 @@
 
         <li>
      	  <li class="treeview">
-          <a href="#">
+          <a href="./">
             <i class="fa fa-file-text"></i>
-            <span>Examination</span>
+            Test
    
           </a>
-     <ul class="treeview-menu">
-     <li><a href="#"><i class="fa fa-circle-o"></i> Instructions</a></li>
-          <li class="active"><a href="#"><i class="fa fa-circle"></i> Begin assessment</a></li>
-     </ul>
+          </li>
+          <li class="treeview">
+          <a href="#">
+             <i class="fa fa-circle-o"></i> 
+             Score board
+         </a>    
         </li>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-users"></i>
-            <span>Students</span>
-   
+            Logout
           </a>
         </li>
-
-
-        
-
       </ul>
     </section>
  
@@ -175,18 +152,18 @@
 			 
             </div>
             <div class="box-body">
-              <form action="update_user.php" method="post">
+              <form action="Update_UserAction" method="post">
                 <div class="form-group">
-                  <input type="text" class="form-control" name="name" value="<%=rs.getString(2)%>" readonly required>
+                  <input type="text" class="form-control" name="name" value="<%=rs.getString(2)%>" required>
                 </div>
                 <div class="form-group">
-                  <input type="email" class="form-control" name="email" value="<%=rs.getString(6)%>" readonly required>
+                  <input type="email" class="form-control" name="email" value="<%=rs.getString(6)%>" required>
                 </div>
 				 <div class="form-group">
-                  <input type="text" class="form-control" name="address" value="<%=rs.getString(7)%>" readonly required>
+                  <input type="text" class="form-control" name="address" value="<%=rs.getString(7)%>" required>
                 </div>
 				<div class="form-group">
-                  <input type="text" class="form-control" name="phone" value="<%=rs.getString(9)%>" readonly required>
+                  <input type="text" class="form-control" name="phone" value="<%=rs.getString(9)%>" required>
                 </div>
                 <div class="form-group">
                   <input type="password" class="form-control" id="password" name="password1" value="" placeholder="New Password" required>

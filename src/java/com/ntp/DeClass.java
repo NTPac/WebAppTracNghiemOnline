@@ -6,22 +6,19 @@
 package com.ntp;
 
 
-import com.ntp.ConnectDBClass;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 /**
  *
  * @author Administrator
  */
 public class DeClass {
-    private ConnectDBClass connDB = new ConnectDBClass();
+    private final ConnectDBClass connDB = new ConnectDBClass();
 
     public DeClass() {
     }
     
     
+    @SuppressWarnings("empty-statement")
     public int checkDB(String qs, String op) throws Exception{
         try {
             ResultSet rs = connDB.chonDuLieuTuDTB("SELECT * FROM nganhangcauhoi WHERE ID = '" + qs +"' and dapan = '" + op+"'");
