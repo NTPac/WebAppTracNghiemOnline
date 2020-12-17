@@ -4,9 +4,10 @@
     Author     : Administrator
 --%>
 
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <%@taglib uri="/struts-tags" prefix="s" %>
+<!DOCTYPE html>
 <html>
     <head>
     <title>Login</title>
@@ -37,12 +38,11 @@
                     <div class="or">-*-</div>
                 </div>
                 <div class="loginbox-textbox">
-                    <input type="text" class="form-control" placeholder="Tên đăng nhập" name="un" id="txtTaiKhoan">
+                    <input type="text" class="form-control" placeholder="Tên đăng nhập" name="un" id="txtTaiKhoan" value="<s:property value="useridString"/>">
                 </div>
                 <div class="loginbox-textbox">
                     <input type="password" class="form-control" placeholder="Mật khẩu" name="pw" id="txtMatKhau" onkeypress="searchKeyPress(event);">
                 </div>
-
                 <div class="loginbox-forgot">
                     <span style="color:red"> </span>
                 </div>

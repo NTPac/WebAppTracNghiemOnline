@@ -15,7 +15,7 @@ public class LoginAction {
     private final ConnectDBClass connDB = new ConnectDBClass();
     private String un;
     private String pw;
-    private String useridString = "";
+    private String useridString = null;
 
     public String getUseridString() {
         return useridString;
@@ -50,6 +50,7 @@ public class LoginAction {
             useridString = un;
             return "T";
         }
+        useridString = "Dang nhap that bai";
         return "F";
     }
     
