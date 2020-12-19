@@ -18,14 +18,14 @@ public class LoginAction {
     private String un;
     private String pw;
     private String useridString = null;
-    private Map session ;
+    private Map sessionn ;
 
     public Map getSession() {
-        return session;
+        return sessionn;
     }
 
     public void setSession(Map session) {
-        this.session = session;
+        this.sessionn = session;
     }
 
     public String getUseridString() {
@@ -63,8 +63,8 @@ public class LoginAction {
         }
         else{
             useridString = null;
-            session = ActionContext.getContext().getSession();
-            session.put("ID", un);
+            sessionn = ActionContext.getContext().getSession();
+            sessionn.put("ID", un);
             return "T";
         }
     }

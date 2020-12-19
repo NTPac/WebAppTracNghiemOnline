@@ -69,6 +69,7 @@ KHOA CÔNG NGHỆ THÔNG TIN
             <tr><td><input type="radio" name="op<%=Integer.toString(i)%>" value="D"/>D.<%=rs.getString(7) %><br></td></tr>
             <tr><td colspan="10"><hr></td></tr>
             <tr><td><input type="hidden" name="qs<%=Integer.toString(i)%>" value="<%=rs.getString(1)%>"/></td></tr>
+            <tr><td><input type="hidden" name="an<%=Integer.toString(i)%>" value="<%=rs.getString(8)%>"/></td></tr>
                 <%i++;}%>
 </table>
 <button type="submit" onclick="return confirm('Are you sure you want to submit your assessment ?')"  class="btn btn-primary">Submit Assessment</button><br><br>

@@ -3,6 +3,8 @@
     Created on : Dec 10, 2020, 9:02:05 PM
     Author     : Administrator
 --%>
+<%@page import="com.opensymphony.xwork2.ActionContext"%>
+<%@page import="java.util.Map"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="com.ntp.ConnectDBClass"%>
 <%@taglib uri="/struts-tags" prefix="s" %>
@@ -27,8 +29,10 @@
   <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
   <link rel="icon" href="dist/img/icon.png">
   <%
+        Map sessionn = ActionContext.getContext().getSession();
+        String id = (String)sessionn.get("ID");
 	ConnectDBClass con = new ConnectDBClass();
-	ResultSet rs = con.chonDuLieuTuDTB("SELECT * FROM `account` WHERE `IDUser` = '123123'");
+	ResultSet rs = con.chonDuLieuTuDTB("SELECT * FROM `account` WHERE `IDUser` = '"+id+"'");
         String anhString = null;
         if(rs.next()){
             if (rs.getString(8) != null){

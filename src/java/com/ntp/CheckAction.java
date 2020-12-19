@@ -16,6 +16,23 @@ public class CheckAction {
     DeClass de = new DeClass();
     private String [] an;
     private String ketqua = null;
+    private String trangthai;
+
+    public String getKetqua() {
+        return ketqua;
+    }
+
+    public void setKetqua(String ketqua) {
+        this.ketqua = ketqua;
+    }
+
+    public String getTrangthai() {
+        return trangthai;
+    }
+
+    public void setTrangthai(String trangthai) {
+        this.trangthai = trangthai;
+    }
     public String[] getAn() {
         return an;
     }
@@ -587,52 +604,20 @@ public class CheckAction {
         diem = 0;
         String[] cauhoi = {qs1,qs2,qs3,qs4,qs5,qs6,qs7,qs8,qs9,qs10,qs11,qs12,qs13,qs14,qs15,qs16,qs17,qs18,qs19,qs20};
         String[] dapan = {op1,op2,op3,op4,op5,op6,op7,op8,op9,op10,op11,op12,op13,op14,op15,op16,op17,op18,op19,op20};
-        ConnectDBClass conn = new ConnectDBClass();
-        ResultSet rs;
-        for(int i = 0; i<20;i++){
-            if(cauhoi[i] != null && dapan != null){
-                String sql = "SELECT * FROM nganhangcauhoi WHERE ID = '"+cauhoi[i]+"'";
-                
-                rs = conn.chonDuLieuTuDTB(qs1);
-                if(rs.next())
-                     an[i] = rs.getString(8);
-                if(dapan[i].equals(an[i])){
-                    diem++;   
+        String[] dapandung = {an1,an2,an3,an4,an5,an6,an7,an8,an9,an10,an11,an12,an13,an14,an15,an16,an17,an18,an19,an20};
+        for(int i = 0 ; i<20 ; i ++)
+        {
+            if(dapan[i].equals(dapandung[i])) {
+                diem ++;
             }
         };
-        };
-        an1 = an[1];
-        an2 = an[2];
-        an3 = an[3];
-        an4 = an[4];
-        an5 = an[5];
-        an6 = an[6];
-        an7 = an[7];
-        an8 = an[8];
-        an9 = an[9];
-        an10= an[10];
-        an11= an[11];
-        an12= an[12];
-        an13= an[13];
-        an14= an[14];
-        an15= an[15];
-        an16= an[16];
-        an17= an[17];
-        an18= an[18];
-        an19= an[19];
-        an20= an[20];
-        
         if(diem<10){
-            ketqua = "<div class=\"callout callout-danger\">\n" +
-"        <h4>You have failed the exam with a score of '.$av_score.'%, Instructor must re-activate for you to repeat the exam</h4>\n" +
-"        Your record have been saved in database\n" +
-"      </div>";
+            ketqua = "fail";
+            trangthai = "callout callout-danger";
         }
         else{
-            ketqua = "<div class=\"callout callout-info\">\n" +
-"                <h4>You have pass the exam with a score of '.$av_score.'%</h4>\n" +
-"                Your record have been saved in database\n" +
-"           </div>";
+            ketqua = "pass";
+            trangthai = "callout callout-info";
         };
         
         return "T";

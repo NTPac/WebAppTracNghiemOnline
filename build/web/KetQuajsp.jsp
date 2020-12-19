@@ -266,7 +266,9 @@
             </div>
    
           </div>
-          <s:property value="ketqua"/>
+                  <div class="<s:property value="trangthai"/>">
+                      <h4>you <s:property value="ketqua"/> the exam with a score of <s:property value="diem"/></h4>
+            </div>
         <div class="row">
 
 
