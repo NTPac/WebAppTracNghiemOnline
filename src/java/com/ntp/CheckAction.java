@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package com.ntp;
+
+import java.sql.ResultSet;
+
 /**
  *
  * @author Administrator
@@ -12,7 +15,7 @@ public class CheckAction {
     
     DeClass de = new DeClass();
     private String [] an;
-
+    private String ketqua = null;
     public String[] getAn() {
         return an;
     }
@@ -23,69 +26,69 @@ public class CheckAction {
     
     private int diem;
     
-    private String qs1 = null;
-    private String qs2 = null;
-    private String qs3 = null;
-    private String qs4 = null;
-    private String qs5 = null;
-    private String qs6 = null;
-    private String qs7 = null;
-    private String qs8 = null;
-    private String qs9 = null;
-    private String qs10 = null;
-    private String qs11 = null;
-    private String qs12 = null;
-    private String qs13 = null;
-    private String qs14 = null;
-    private String qs15 = null;
-    private String qs16 = null;
-    private String qs17 = null;
-    private String qs18 = null;
-    private String qs19 = null;
-    private String qs20 = null;
+    private String qs1 = "";
+    private String qs2 = "";
+    private String qs3 = "";
+    private String qs4 = "";
+    private String qs5 = "";
+    private String qs6 = "";
+    private String qs7 = "";
+    private String qs8 = "";
+    private String qs9 = "";
+    private String qs10 = "";
+    private String qs11 = "";
+    private String qs12 = "";
+    private String qs13 = "";
+    private String qs14 = "";
+    private String qs15 = "";
+    private String qs16 = "";
+    private String qs17 = "";
+    private String qs18 = "";
+    private String qs19 = "";
+    private String qs20 = "";
     
     
-    private String op1 = null;
-    private String op2 = null;
-    private String op3 = null;
-    private String op4 = null;
-    private String op5 = null;
-    private String op6 = null;
-    private String op7 = null;
-    private String op8 = null;
-    private String op9 = null;
-    private String op10 = null;
-    private String op11 = null;
-    private String op12 = null;
-    private String op13 = null;
-    private String op14 = null;
-    private String op15 = null;
-    private String op16 = null;
-    private String op17 = null;
-    private String op18 = null;
-    private String op19 = null;
-    private String op20 = null;
+    private String op1 = "F";
+    private String op2 = "F";
+    private String op3 = "F";
+    private String op4 ="F";
+    private String op5 = "F";
+    private String op6 = "F";
+    private String op7 = "F";
+    private String op8 = "F";
+    private String op9 = "F";
+    private String op10 = "F";
+    private String op11 = "F";
+    private String op12 = "F";
+    private String op13 = "F";
+    private String op14 = "F";
+    private String op15 = "F";
+    private String op16 = "F";
+    private String op17 = "F";
+    private String op18 = "F";
+    private String op19 = "F";
+    private String op20 = "F";
 
-    private String an1 = null;
-    private String an2 = null;
-    private String an3 = null;
-    private String an4 = null;
-    private String an5 = null;
-    private String an6 = null;
-    private String an7 = null;
-    private String an8 = null;
-    private String an9 = null;
-    private String an10 = null;
-    private String an11 = null;
-    private String an12 = null;
-    private String an13 = null;
-    private String an14 = null;
-    private String an15 = null;
-    private String an16 = null;
-    private String an17 = null;
-    private String an18 = null;
-    private String an19 = null;
-    private String an20 = null;
+    private String an1 = "F";
+    private String an2 = "F";
+    private String an3 = "F";
+    private String an4 = "F";
+    private String an5 = "F";
+    private String an6 = "F";
+    private String an7 = "F";
+    private String an8 = "F";
+    private String an9 = "F";
+    private String an10 = "F";
+    private String an11 = "F";
+    private String an12 = "F";
+    private String an13 = "F";
+    private String an14 = "F";
+    private String an15 = "F";
+    private String an16 = "F";
+    private String an17 = "F";
+    private String an18 = "F";
+    private String an19 = "F";
+    private String an20 = "F";
 
     public String getAn1() {
         return an1;
@@ -582,17 +585,22 @@ public class CheckAction {
     
     public String execute() throws Exception {
         diem = 0;
-        int i = 0;
         String[] cauhoi = {qs1,qs2,qs3,qs4,qs5,qs6,qs7,qs8,qs9,qs10,qs11,qs12,qs13,qs14,qs15,qs16,qs17,qs18,qs19,qs20};
         String[] dapan = {op1,op2,op3,op4,op5,op6,op7,op8,op9,op10,op11,op12,op13,op14,op15,op16,op17,op18,op19,op20};
-        
-        while(i <19 && cauhoi[i] != null && dapan[i] != null) {
-            an[i] = de.checkDB(cauhoi[i]);
-            if(dapan[i].equals(an[i])){
-                diem++;   
+        ConnectDBClass conn = new ConnectDBClass();
+        ResultSet rs;
+        for(int i = 0; i<20;i++){
+            if(cauhoi[i] != null && dapan != null){
+                String sql = "SELECT * FROM nganhangcauhoi WHERE ID = '"+cauhoi[i]+"'";
+                
+                rs = conn.chonDuLieuTuDTB(qs1);
+                if(rs.next())
+                     an[i] = rs.getString(8);
+                if(dapan[i].equals(an[i])){
+                    diem++;   
             }
-            i++;
-        } 
+        };
+        };
         an1 = an[1];
         an2 = an[2];
         an3 = an[3];
@@ -613,6 +621,19 @@ public class CheckAction {
         an18= an[18];
         an19= an[19];
         an20= an[20];
+        
+        if(diem<10){
+            ketqua = "<div class=\"callout callout-danger\">\n" +
+"        <h4>You have failed the exam with a score of '.$av_score.'%, Instructor must re-activate for you to repeat the exam</h4>\n" +
+"        Your record have been saved in database\n" +
+"      </div>";
+        }
+        else{
+            ketqua = "<div class=\"callout callout-info\">\n" +
+"                <h4>You have pass the exam with a score of '.$av_score.'%</h4>\n" +
+"                Your record have been saved in database\n" +
+"           </div>";
+        };
         
         return "T";
     }

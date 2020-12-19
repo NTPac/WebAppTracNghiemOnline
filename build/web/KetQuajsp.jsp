@@ -138,142 +138,135 @@
                   </tr>
                                     <tr>
                   <td>3</td>
-                  <td><s:property value="qs1"/></td>
-                  <td><s:property value="op1"/></td>
-                  <td><s:property value="an1"/></td>
+                  <td><s:property value="qs3"/></td>
+                  <td><s:property value="op3"/></td>
+                  <td><s:property value="an3"/></td>
                   <td>1</td>
                   </tr>
                                     <tr>
-                  <td>1</td>
-                  <td><s:property value="qs1"/></td>
-                  <td><s:property value="op1"/></td>
-                  <td><s:property value="an1"/></td>
-                  <td>1</td>
-                  </tr>
-                                    <tr>
-                  <td>1</td>
-                  <td><s:property value="qs1"/></td>
-                  <td><s:property value="op1"/></td>
-                  <td><s:property value="an1"/></td>
+                  <td>4</td>
+                  <td><s:property value="qs4"/></td>
+                  <td><s:property value="op4"/></td>
+                  <td><s:property value="an4"/></td>
                   <td>1</td>
                   </tr>
                                     <tr>
-                  <td>1</td>
-                  <td><s:property value="qs1"/></td>
-                  <td><s:property value="op1"/></td>
-                  <td><s:property value="an1"/></td>
-                  <td>1</td>
-                  </tr>
-                                    <tr>
-                  <td>1</td>
-                  <td><s:property value="qs1"/></td>
-                  <td><s:property value="op1"/></td>
-                  <td><s:property value="an1"/></td>
+                  <td>5</td>
+                  <td><s:property value="qs5"/></td>
+                  <td><s:property value="op5"/></td>
+                  <td><s:property value="an5"/></td>
                   <td>1</td>
                   </tr>
                                     <tr>
-                  <td>1</td>
-                  <td><s:property value="qs1"/></td>
-                  <td><s:property value="op1"/></td>
-                  <td><s:property value="an1"/></td>
-                  <td>1</td>
-                  </tr>
-                                    <tr>
-                  <td>1</td>
-                  <td><s:property value="qs1"/></td>
-                  <td><s:property value="op1"/></td>
-                  <td><s:property value="an1"/></td>
+                  <td>6</td>
+                  <td><s:property value="qs6"/></td>
+                  <td><s:property value="op6"/></td>
+                  <td><s:property value="an6"/></td>
                   <td>1</td>
                   </tr>
                                     <tr>
-                  <td>1</td>
-                  <td><s:property value="qs1"/></td>
-                  <td><s:property value="op1"/></td>
-                  <td><s:property value="an1"/></td>
-                  <td>1</td>
-                  </tr>
-                                    <tr>
-                  <td>1</td>
-                  <td><s:property value="qs1"/></td>
-                  <td><s:property value="op1"/></td>
-                  <td><s:property value="an1"/></td>
+                  <td>7</td>
+                  <td><s:property value="qs7"/></td>
+                  <td><s:property value="op7"/></td>
+                  <td><s:property value="an7"/></td>
                   <td>1</td>
                   </tr>
                                     <tr>
-                  <td>1</td>
-                  <td><s:property value="qs1"/></td>
-                  <td><s:property value="op1"/></td>
-                  <td><s:property value="an1"/></td>
-                  <td>1</td>
-                  </tr>
-                                    <tr>
-                  <td>1</td>
-                  <td><s:property value="qs1"/></td>
-                  <td><s:property value="op1"/></td>
-                  <td><s:property value="an1"/></td>
+                  <td>8</td>
+                  <td><s:property value="qs8"/></td>
+                  <td><s:property value="op8"/></td>
+                  <td><s:property value="an8"/></td>
                   <td>1</td>
                   </tr>
                                     <tr>
-                  <td>1</td>
-                  <td><s:property value="qs1"/></td>
-                  <td><s:property value="op1"/></td>
-                  <td><s:property value="an1"/></td>
-                  <td>1</td>
-                  </tr>
-                                    <tr>
-                  <td>1</td>
-                  <td><s:property value="qs1"/></td>
-                  <td><s:property value="op1"/></td>
-                  <td><s:property value="an1"/></td>
+                  <td>9</td>
+                  <td><s:property value="qs9"/></td>
+                  <td><s:property value="op9"/></td>
+                  <td><s:property value="an9"/></td>
                   <td>1</td>
                   </tr>
                                     <tr>
-                  <td>1</td>
-                  <td><s:property value="qs1"/></td>
-                  <td><s:property value="op1"/></td>
-                  <td><s:property value="an1"/></td>
-                  <td>1</td>
-                  </tr>
-                                    <tr>
-                  <td>1</td>
-                  <td><s:property value="qs1"/></td>
-                  <td><s:property value="op1"/></td>
-                  <td><s:property value="an1"/></td>
+                  <td>10</td>
+                  <td><s:property value="qs10"/></td>
+                  <td><s:property value="op10"/></td>
+                  <td><s:property value="an10"/></td>
                   <td>1</td>
                   </tr>
                                     <tr>
-                  <td>1</td>
-                  <td><s:property value="qs1"/></td>
-                  <td><s:property value="op1"/></td>
-                  <td><s:property value="an1"/></td>
-                  <td>1</td>
-                  </tr>
-                                    <tr>
-                  <td>1</td>
-                  <td><s:property value="qs1"/></td>
-                  <td><s:property value="op1"/></td>
-                  <td><s:property value="an1"/></td>
+                  <td>11</td>
+                  <td><s:property value="qs11"/></td>
+                  <td><s:property value="op11"/></td>
+                  <td><s:property value="an11"/></td>
                   <td>1</td>
                   </tr>
                                     <tr>
+                  <td>12</td>
+                  <td><s:property value="qs12"/></td>
+                  <td><s:property value="op12"/></td>
+                  <td><s:property value="an12"/></td>
                   <td>1</td>
-                  <td><s:property value="qs1"/></td>
-                  <td><s:property value="op1"/></td>
-                  <td><s:property value="an1"/></td>
+                  </tr>
+                                    <tr>
+                  <td>13</td>
+                  <td><s:property value="qs13"/></td>
+                  <td><s:property value="op13"/></td>
+                  <td><s:property value="an13"/></td>
+                  <td>1</td>
+                  </tr>
+                                    <tr>
+                  <td>14</td>
+                  <td><s:property value="qs14"/></td>
+                  <td><s:property value="op14"/></td>
+                  <td><s:property value="an14"/></td>
+                  <td>1</td>
+                  </tr>
+                                    <tr>
+                  <td>15</td>
+                  <td><s:property value="qs15"/></td>
+                  <td><s:property value="op15"/></td>
+                  <td><s:property value="an15"/></td>
+                  <td>1</td>
+                  </tr>
+                                    <tr>
+                  <td>16</td>
+                  <td><s:property value="qs16"/></td>
+                  <td><s:property value="op16"/></td>
+                  <td><s:property value="an16"/></td>
+                  <td>1</td>
+                  </tr>
+                                    <tr>
+                  <td>17</td>
+                  <td><s:property value="qs17"/></td>
+                  <td><s:property value="op17"/></td>
+                  <td><s:property value="an17"/></td>
+                  <td>1</td>
+                  </tr>
+                                    <tr>
+                  <td>18</td>
+                  <td><s:property value="qs18"/></td>
+                  <td><s:property value="op18"/></td>
+                  <td><s:property value="an18"/></td>
+                  <td>1</td>
+                  </tr>
+                                    <tr>
+                  <td>19</td>
+                  <td><s:property value="qs19"/></td>
+                  <td><s:property value="op19"/></td>
+                  <td><s:property value="an19"/></td>
+                  <td>1</td>
+                  </tr>
+                                    <tr>
+                  <td>20</td>
+                  <td><s:property value="qs20"/></td>
+                  <td><s:property value="op20"/></td>
+                  <td><s:property value="an20"/></td>
                   <td>1</td>
                   </tr>
               </tbody></table>
             </div>
    
           </div>
-          <div class="callout callout-info">
-                <h4>You have pass the exam with a score of '.$av_score.'%</h4>
-                Your record have been saved in database
-           </div>
-          <div class="callout callout-danger">
-        <h4>You have failed the exam with a score of '.$av_score.'%, Instructor must re-activate for you to repeat the exam</h4>
-        Your record have been saved in database
-      </div>
+          <s:property value="ketqua"/>
         <div class="row">
 
 

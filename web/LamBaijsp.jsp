@@ -51,7 +51,6 @@ KHOA CÔNG NGHỆ THÔNG TIN
 </div>
 <div id="myhead2" style="padding-left:20px; padding-right:20px;">
 <form action="CheckAction" method="GET">
-        <input type="hidden" name="id" value="<s:property value="session.ID"/>"/>
         <%
 	ConnectDBClass con = new ConnectDBClass();
 	ResultSet rs = con.chonDuLieuTuDTB("SELECT * FROM `nganhangcauhoi`");
