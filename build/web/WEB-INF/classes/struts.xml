@@ -12,5 +12,8 @@
             <result name="T">/Profilejsp.jsp</result>
             <result name="F">/Loginjsp.jsp</result>
         </action>
+        <action name="logout" class="com.ntp.LogoutAction" method="execute">
+            <result name="T">/Loginjsp.jsp</result>
+        </action>
     </package>
 </struts>

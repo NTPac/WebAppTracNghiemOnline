@@ -19,16 +19,16 @@ public class DeClass {
     
     
     @SuppressWarnings("empty-statement")
-    public int checkDB(String qs, String op) throws Exception{
+    public String checkDB(String qs) throws Exception{
         try {
-            ResultSet rs = connDB.chonDuLieuTuDTB("SELECT * FROM nganhangcauhoi WHERE ID = '" + qs +"' and dapan = '" + op+"'");
+            ResultSet rs = connDB.chonDuLieuTuDTB("SELECT * FROM nganhangcauhoi WHERE ID = '" + qs +"'");
             if(rs.next()){ 
-                return 1;
+                return rs.getString(8);
                 };
             } 
         catch (Exception e) {
         }
-        return 0;
+        return null;
     }
     
     

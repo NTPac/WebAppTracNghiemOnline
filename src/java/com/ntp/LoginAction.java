@@ -5,7 +5,9 @@
  */
 package com.ntp;
 
+import com.opensymphony.xwork2.ActionContext;
 import java.sql.ResultSet;
+import java.util.Map;
 
 /**
  *
@@ -16,6 +18,15 @@ public class LoginAction {
     private String un;
     private String pw;
     private String useridString = null;
+    private Map session ;
+
+    public Map getSession() {
+        return session;
+    }
+
+    public void setSession(Map session) {
+        this.session = session;
+    }
 
     public String getUseridString() {
         return useridString;
@@ -46,12 +57,16 @@ public class LoginAction {
     public String execute() throws Exception {
         String sql = "SELECT `IDUser` FROM `account` WHERE `IDUser` = '"+un+"' and `passWord` = '"+pw+"'";
         ResultSet rs = connDB.chonDuLieuTuDTB(sql);
-        if(rs.next()){
-            useridString = un;
+        if(!rs.next()){     
+           useridString = "Dang nhap that bai";
+           return "F";
+        }
+        else{
+            useridString = null;
+            session = ActionContext.getContext().getSession();
+            session.put("ID", un);
             return "T";
         }
-        useridString = "Dang nhap that bai";
-        return "F";
     }
     
 }

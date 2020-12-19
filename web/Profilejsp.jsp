@@ -5,6 +5,7 @@
 --%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="com.ntp.ConnectDBClass"%>
+<%@taglib uri="/struts-tags" prefix="s" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -54,10 +55,6 @@
       <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
         <span class="sr-only">Toggle navigation</span>
       </a>
-        <div stype=" align-items: center;">
-            <a href="logout.php" class="btn btn-default btn-flat" >Sign out</a>
-        </div>  
-      
     </nav>
   </header>
   <aside class="main-sidebar">
@@ -67,9 +64,10 @@
               <%=anhString%>
           </div>
         <div class="pull-left info">
-          <p><%=rs.getString(2)%></p>
+            <p><%=rs.getString(2)%></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
+          
       </div>
 
       <ul class="sidebar-menu">
@@ -77,20 +75,20 @@
 
         <li>
      	  <li class="treeview">
-          <a href="./">
+          <a href="LamBaijsp.jsp">
             <i class="fa fa-file-text"></i>
             Test
    
           </a>
           </li>
           <li class="treeview">
-          <a href="#">
+          <a href="KetQuajsp.jsp">
              <i class="fa fa-circle-o"></i> 
              Score board
          </a>    
         </li>
         <li class="treeview">
-          <a href="#">
+          <a href="./logout">
             <i class="fa fa-users"></i>
             Logout
           </a>
@@ -153,8 +151,12 @@
             </div>
             <div class="box-body">
               <form action="Update_UserAction" method="post">
+                  <input type="hidden" name="id" value="<s:property value="session.ID"/>"/>
                 <div class="form-group">
                   <input type="text" class="form-control" name="name" value="<%=rs.getString(2)%>" required>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" name="gender" value="<%=rs.getString(3)%>" required>
                 </div>
                 <div class="form-group">
                   <input type="email" class="form-control" name="email" value="<%=rs.getString(6)%>" required>
@@ -186,6 +188,7 @@ function validatePassword(){
 password.onchange = validatePassword;
 confirm_password.onkeyup = validatePassword;
 </script>
+                <s:property value="sta"/>
               <div class="box-footer clearfix">
               <button type="submit" class="pull-right btn btn-default" name="upschool" id="sendEmail">Update Information
                 <i class="fa fa-arrow-circle-up"></i></button>

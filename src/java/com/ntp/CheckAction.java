@@ -11,51 +11,242 @@ package com.ntp;
 public class CheckAction {
     
     DeClass de = new DeClass();
+    private String [] an;
+
+    public String[] getAn() {
+        return an;
+    }
+
+    public void setAn(String[] an) {
+        this.an = an;
+    }
     
     private int diem;
     
-    private String qs1 = " ";
-    private String qs2 = " ";
-    private String qs3 = " ";
-    private String qs4 = " ";
-    private String qs5 = " ";
-    private String qs6 = " ";
-    private String qs7 = " ";
-    private String qs8 = " ";
-    private String qs9 = " ";
-    private String qs10 = " ";
-    private String qs11 = " ";
-    private String qs12 = " ";
-    private String qs13 = " ";
-    private String qs14 = " ";
-    private String qs15 = " ";
-    private String qs16 = " ";
-    private String qs17 = " ";
-    private String qs18 = " ";
-    private String qs19 = " ";
-    private String qs20 = " ";
+    private String qs1 = null;
+    private String qs2 = null;
+    private String qs3 = null;
+    private String qs4 = null;
+    private String qs5 = null;
+    private String qs6 = null;
+    private String qs7 = null;
+    private String qs8 = null;
+    private String qs9 = null;
+    private String qs10 = null;
+    private String qs11 = null;
+    private String qs12 = null;
+    private String qs13 = null;
+    private String qs14 = null;
+    private String qs15 = null;
+    private String qs16 = null;
+    private String qs17 = null;
+    private String qs18 = null;
+    private String qs19 = null;
+    private String qs20 = null;
     
-    private String op1 = "F";
-    private String op2 = "F";
-    private String op3 = "F";
-    private String op4 = "F";
-    private String op5 = "F";
-    private String op6 = "F";
-    private String op7 = "F";
-    private String op8 = "F";
-    private String op9 = "F";
-    private String op10 = "F";
-    private String op11 = "F";
-    private String op12 = "F";
-    private String op13 = "F";
-    private String op14 = "F";
-    private String op15 = "F";
-    private String op16 = "F";
-    private String op17 = "F";
-    private String op18 = "F";
-    private String op19 = "F";
-    private String op20 = "F";
+    
+    private String op1 = null;
+    private String op2 = null;
+    private String op3 = null;
+    private String op4 = null;
+    private String op5 = null;
+    private String op6 = null;
+    private String op7 = null;
+    private String op8 = null;
+    private String op9 = null;
+    private String op10 = null;
+    private String op11 = null;
+    private String op12 = null;
+    private String op13 = null;
+    private String op14 = null;
+    private String op15 = null;
+    private String op16 = null;
+    private String op17 = null;
+    private String op18 = null;
+    private String op19 = null;
+    private String op20 = null;
 
+    private String an1 = null;
+    private String an2 = null;
+    private String an3 = null;
+    private String an4 = null;
+    private String an5 = null;
+    private String an6 = null;
+    private String an7 = null;
+    private String an8 = null;
+    private String an9 = null;
+    private String an10 = null;
+    private String an11 = null;
+    private String an12 = null;
+    private String an13 = null;
+    private String an14 = null;
+    private String an15 = null;
+    private String an16 = null;
+    private String an17 = null;
+    private String an18 = null;
+    private String an19 = null;
+    private String an20 = null;
+
+    public String getAn1() {
+        return an1;
+    }
+
+    public void setAn1(String an1) {
+        this.an1 = an1;
+    }
+
+    public String getAn2() {
+        return an2;
+    }
+
+    public void setAn2(String an2) {
+        this.an2 = an2;
+    }
+
+    public String getAn3() {
+        return an3;
+    }
+
+    public void setAn3(String an3) {
+        this.an3 = an3;
+    }
+
+    public String getAn4() {
+        return an4;
+    }
+
+    public void setAn4(String an4) {
+        this.an4 = an4;
+    }
+
+    public String getAn5() {
+        return an5;
+    }
+
+    public void setAn5(String an5) {
+        this.an5 = an5;
+    }
+
+    public String getAn6() {
+        return an6;
+    }
+
+    public void setAn6(String an6) {
+        this.an6 = an6;
+    }
+
+    public String getAn7() {
+        return an7;
+    }
+
+    public void setAn7(String an7) {
+        this.an7 = an7;
+    }
+
+    public String getAn8() {
+        return an8;
+    }
+
+    public void setAn8(String an8) {
+        this.an8 = an8;
+    }
+
+    public String getAn9() {
+        return an9;
+    }
+
+    public void setAn9(String an9) {
+        this.an9 = an9;
+    }
+
+    public String getAn10() {
+        return an10;
+    }
+
+    public void setAn10(String an10) {
+        this.an10 = an10;
+    }
+
+    public String getAn11() {
+        return an11;
+    }
+
+    public void setAn11(String an11) {
+        this.an11 = an11;
+    }
+
+    public String getAn12() {
+        return an12;
+    }
+
+    public void setAn12(String an12) {
+        this.an12 = an12;
+    }
+
+    public String getAn13() {
+        return an13;
+    }
+
+    public void setAn13(String an13) {
+        this.an13 = an13;
+    }
+
+    public String getAn14() {
+        return an14;
+    }
+
+    public void setAn14(String an14) {
+        this.an14 = an14;
+    }
+
+    public String getAn15() {
+        return an15;
+    }
+
+    public void setAn15(String an15) {
+        this.an15 = an15;
+    }
+
+    public String getAn16() {
+        return an16;
+    }
+
+    public void setAn16(String an16) {
+        this.an16 = an16;
+    }
+
+    public String getAn17() {
+        return an17;
+    }
+
+    public void setAn17(String an17) {
+        this.an17 = an17;
+    }
+
+    public String getAn18() {
+        return an18;
+    }
+
+    public void setAn18(String an18) {
+        this.an18 = an18;
+    }
+
+    public String getAn19() {
+        return an19;
+    }
+
+    public void setAn19(String an19) {
+        this.an19 = an19;
+    }
+
+    public String getAn20() {
+        return an20;
+    }
+
+    public void setAn20(String an20) {
+        this.an20 = an20;
+    }
+    
     public int getDiem() {
         return diem;
     }
@@ -396,9 +587,32 @@ public class CheckAction {
         String[] dapan = {op1,op2,op3,op4,op5,op6,op7,op8,op9,op10,op11,op12,op13,op14,op15,op16,op17,op18,op19,op20};
         
         while(i <19 && cauhoi[i] != null && dapan[i] != null) {
-            diem = diem + de.checkDB(cauhoi[i], dapan[i]);
+            an[i] = de.checkDB(cauhoi[i]);
+            if(dapan[i].equals(an[i])){
+                diem++;   
+            }
             i++;
-        }
+        } 
+        an1 = an[1];
+        an2 = an[2];
+        an3 = an[3];
+        an4 = an[4];
+        an5 = an[5];
+        an6 = an[6];
+        an7 = an[7];
+        an8 = an[8];
+        an9 = an[9];
+        an10= an[10];
+        an11= an[11];
+        an12= an[12];
+        an13= an[13];
+        an14= an[14];
+        an15= an[15];
+        an16= an[16];
+        an17= an[17];
+        an18= an[18];
+        an19= an[19];
+        an20= an[20];
         
         return "T";
     }
