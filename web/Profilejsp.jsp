@@ -86,7 +86,7 @@
           </a>
           </li>
           <li class="treeview">
-          <a href="KetQuajsp.jsp">
+          <a href="ScoreBoardjsp.jsp">
              <i class="fa fa-circle-o"></i> 
              Score board
          </a>    
@@ -133,7 +133,7 @@
                   <b>Address</b> <a class="pull-right"><%=rs.getString(7)%></a>
                 </li>
               </ul>
-                <form action="#" method="POST">
+                <form action="update_logo" method="POST">
 			<input type="file" name="f1" accept="image/*" required><br>
 			
 			     <button type="submit" class="pull-right btn btn-default" name="uplogo" id="sendEmail">Update profile picture
@@ -155,7 +155,6 @@
             </div>
             <div class="box-body">
               <form action="Update_UserAction" method="post">
-                  <input type="hidden" name="id" value="<s:property value="session.ID"/>"/>
                 <div class="form-group">
                   <input type="text" class="form-control" name="name" value="<%=rs.getString(2)%>" required>
                 </div>

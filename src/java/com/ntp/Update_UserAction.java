@@ -5,6 +5,9 @@
  */
 package com.ntp;
 
+import com.opensymphony.xwork2.ActionContext;
+import java.util.Map;
+
 /**
  *
  * @author Administrator
@@ -13,15 +16,8 @@ public class Update_UserAction {
     public String sta = null;
     private final ConnectDBClass connDB = new ConnectDBClass();
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
     
-    private String name, email, address, phone, password1, password2,gender,id;
+    private String name, email, address, phone, password1, password2,gender;
 
     public String getGender() {
         return gender;
@@ -82,6 +78,8 @@ public class Update_UserAction {
     }
     
     public String execute() throws Exception {
+        Map sessionn = ActionContext.getContext().getSession();
+        String id = (String) sessionn.get("ID");
         String sql = "UPDATE `account` SET `FullName`='"+name+"',`gender`='"+gender+"',`passWord`='"+password1+"',`Email`='"+email+"',`address`='"+address+"',`phone`= '"+phone+"' WHERE `IDUser`='"+id+"'";
         if(connDB.thucThiCauLenhSQL(sql))
         {

@@ -5,7 +5,9 @@
  */
 package com.ntp;
 
+import com.opensymphony.xwork2.ActionContext;
 import java.sql.ResultSet;
+import java.util.Map;
 
 /**
  *
@@ -619,6 +621,11 @@ public class CheckAction {
             ketqua = "pass";
             trangthai = "callout callout-info";
         };
+        Map sessionn = ActionContext.getContext().getSession();
+        String id = (String)sessionn.get("ID");
+        ConnectDBClass conn = new ConnectDBClass();
+        String sql = "INSERT INTO `bangdiem`( `iduser`, `diem`) VALUES ('"+id+"','"+diem+"')";
+        conn.thucThiCauLenhSQL(sql);
         
         return "T";
     }
