@@ -15,5 +15,8 @@
         <action name="logout" class="com.ntp.LogoutAction" method="execute">
             <result name="T">/Loginjsp.jsp</result>
         </action>
+        <action name="profile" class="com.ntp.ProfileAction" method="execute">
+            <result name="T">/Profilejsp.jsp</result>
+        </action>
     </package>
 </struts>

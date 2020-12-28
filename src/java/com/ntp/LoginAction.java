@@ -55,18 +55,24 @@ public class LoginAction {
     }
     
     public String execute() throws Exception {
-        String sql = "SELECT `IDUser` FROM `account` WHERE `IDUser` = '"+un+"' and `passWord` = '"+pw+"'";
+        String sql = "SELECT `IDUser`, `role` FROM `account` WHERE `IDUser` = '"+un+"' and `passWord` = '"+pw+"'";
         ResultSet rs = connDB.chonDuLieuTuDTB(sql);
-        if(!rs.next()){     
-           useridString = "Dang nhap that bai";
-           return "F";
-        }
-        else{
+        String resultString;
+        if(rs.next()){
             useridString = null;
             sessionn = ActionContext.getContext().getSession();
             sessionn.put("ID", un);
-            return "T";
+            String role = rs.getString("role");
+            if("Admin".equals(role))
+                resultString = "A";
+            else
+            resultString = "T";           
         }
+        else{
+            useridString = "Dang nhap that bai";
+           resultString = "F";
+        }
+        return resultString;
     }
     
 }

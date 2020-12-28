@@ -64,11 +64,11 @@
   <aside class="main-sidebar">
     <section class="sidebar">
       <div class="user-panel">
-          <div class="pull-left image" >
+          <div class="pull-left image">
               <%=anhString%>
           </div>
         <div class="pull-left info">
-            <p><a href="./"><%=rs.getString(2)%><a/></p>
+            <p><a href="Profile"><%=rs.getString(2)%><a/></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
           
@@ -105,106 +105,167 @@
   <div class="content-wrapper">
     <section class="content-header">
       <h1>
-        User Profile
+        Dashboard
       
       </h1>
       <ol class="breadcrumb">
-        <li><a href="./Profilejsp.jsp"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">User Profile</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
       </ol>
     </section>
 
     <section class="content">
-    
       <div class="row">
-        <section class="col-lg-4">
-<div class="box box-primary">
-            <div class="box-body box-profile">
-                <%=anhString%>
-                <h3 class="profile-username text-center"><%=rs.getString(2)%></h3>
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3></h3>
 
-              <p class="text-muted text-center"><%=rs.getString(6)%></p>
-
-              <ul class="list-group list-group-unbordered">
-                <li class="list-group-item">
-                  <b>Gender</b> <a class="pull-right"><%=rs.getString(3)%></a>
-                </li>
-                <li class="list-group-item">
-                  <b>Address</b> <a class="pull-right"><%=rs.getString(7)%></a>
-                </li>
-              </ul>
-                <form action="update_logo" method="POST">
-			<input type="file" name="f1" accept="image/*" required><br>
-			
-			     <button type="submit" class="pull-right btn btn-default" name="uplogo" id="sendEmail">Update profile picture
-                <i class="fa fa-arrow-circle-up"></i></button>
-		</form>
-		
+              <p>Registered Students</p>
             </div>
-            <!-- /.box-body -->
-          </div>
-        </section>
-		        <section class="col-lg-8">
-
-          
-            <div class="box-header">
+            <div class="icon">
               <i class="fa fa-user"></i>
+            </div>
+            <a href="students.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-orange">
+            <div class="inner">
+              <h3><sup style="font-size: 20px"></sup></h3>
 
-              <h3 class="box-title">User Information</h3>
-			 
+              <p>Students Attended</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-check"></i>
+            </div>
+            <a href="results.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3></h3>
+
+              <p>Pass Students</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-thumbs-o-up"></i>
+            </div>
+            <a href="results.php?ref=PASS" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-red">
+            <div class="inner">
+              <h3></h3>
+
+              <p>Fail Students</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-thumbs-o-down"></i>
+            </div>
+            <a href="results.php?ref=FAIL" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <section class="col-lg-7">
+
+          <div class="box box-info">
+            <div class="box-header">
+              <i class="fa fa-graduation-cap"></i>
+
+              <h3 class="box-title">School Information</h3>
+	
+
             </div>
             <div class="box-body">
-              <form action="Update_UserAction" method="post">
+
+              <form action="update_school.php" method="post">
                 <div class="form-group">
-                  <input type="text" class="form-control" name="name" value="<%=rs.getString(2)%>" required>
+                  <input type="text" class="form-control" name="name" value="" placeholder="School Name" required>
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control" name="gender" value="<%=rs.getString(3)%>" required>
-                </div>
-                <div class="form-group">
-                  <input type="email" class="form-control" name="email" value="<%=rs.getString(6)%>" required>
+                  <input type="email" class="form-control" name="email" value="" placeholder="School Email" required>
                 </div>
 				 <div class="form-group">
-                  <input type="text" class="form-control" name="address" value="<%=rs.getString(7)%>" required>
+                  <input type="text" class="form-control" name="address" value="" placeholder="School Address" required>
                 </div>
 				<div class="form-group">
-                  <input type="text" class="form-control" name="phone" value="<%=rs.getString(9)%>" required>
+                  <input type="text" class="form-control" name="phone" value="" placeholder="School Phone" required>
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control" id="password" name="password1" value="" placeholder="New Password" required>
+                  <input type="text" class="form-control" name="slogan" value="" placeholder="School Slogan" required>
                 </div>
-				 <div class="form-group">
-                  <input type="password" class="form-control" id="confirm_password" name="password2" value="" placeholder="Confirm New Password" required>
-                </div>
-              						<script>
-	var password = document.getElementById("password")
-  , confirm_password = document.getElementById("confirm_password");
-
-function validatePassword(){
-  if(password.value != confirm_password.value) {
-    confirm_password.setCustomValidity("Passwords Don't Match");
-  } else {
-    confirm_password.setCustomValidity('');
-  }
-}
-
-password.onchange = validatePassword;
-confirm_password.onkeyup = validatePassword;
-</script>
-                <s:property value="sta"/>
-              <div class="box-footer clearfix">
-              <button type="submit" class="pull-right btn btn-default" name="upschool" id="sendEmail">Update Information
+              
+              
+            </div>
+            <div class="box-footer clearfix">
+              <button type="submit" class="pull-right btn btn-default" name="upschool" id="sendEmail">Update School Information
                 <i class="fa fa-arrow-circle-up"></i></button>
             </div>
 			</form>
+          </div>
+
+		  <div class="box box-primary">
+            <div class="box-header" style="cursor: move;">
+              <i class="ion ion-clipboard"></i>
+
+              <h3 class="box-title">Recent Registred Students</h3>
             </div>
-            
-          
-</section>
-		</div>
-                          
+            <div class="box-body">
+              <ul class="todo-list">
+
+              </ul>
+            </div
+           
+          </div>
+        </section>
+
+        <section class="col-lg-5">
+		<div class="box box-info">
+            <div class="box-header">
+              <i class="fa fa-image"></i>
+
+              <h3 class="box-title">
+                School Logo
+              </h3>
+			  
+			 <hr>
+            </div>
+            <div class="box-body">
+
+            </div>
+        
+            <div class="box-footer no-border">
+            <form action="update_school_logo.php" method="POST" enctype="multipart/form-data">
+			Update School Logo <input type="file" name="f1" accept="image/*" required><br>
+			
+			     <button type="submit" class="btn btn-default" name="uplogo" id="sendEmail">Update School Logo
+                <i class="fa fa-arrow-circle-up"></i></button>
+			</form>
+            </div>
+          </div>
+          <div class="box box-solid bg-green-gradient">
+            <div class="box-header">
+              <i class="fa fa-calendar"></i>
+
+              <h3 class="box-title">Calendar</h3>
+
+            </div>
+            <div class="box-body no-padding">
+              <div id="calendar" style="width: 100%"></div>
+            </div>
+
+          </div>
+
+        </section>
+      </div>
+
     </section>
-  </div>
+  </div> 
+      </div>
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>Version</b> 3.0

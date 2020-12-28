@@ -68,7 +68,7 @@
               <%=anhString%>
           </div>
         <div class="pull-left info">
-            <p><%=rs.getString(2)%></p>
+            <p><a href="./Profile"><%=rs.getString(2)%><a/></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
           
@@ -86,7 +86,7 @@
           </a>
           </li>
           <li class="treeview">
-          <a href="KetQuajsp.jsp">
+          <a href="./">
              <i class="fa fa-circle-o"></i> 
              Score board
          </a>    

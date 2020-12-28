@@ -64,11 +64,11 @@
   <aside class="main-sidebar">
     <section class="sidebar">
       <div class="user-panel">
-          <div class="pull-left image">
+          <div class="pull-left image" >
               <%=anhString%>
           </div>
         <div class="pull-left info">
-            <p><%=rs.getString(2)%></p>
+            <p><a href="./"><%=rs.getString(2)%><a/></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
           
@@ -109,7 +109,7 @@
       
       </h1>
       <ol class="breadcrumb">
-        <li><a href="./"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="./Profilejsp.jsp"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">User Profile</li>
       </ol>
     </section>
