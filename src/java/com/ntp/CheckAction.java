@@ -8,6 +8,9 @@ package com.ntp;
 import com.opensymphony.xwork2.ActionContext;
 import java.sql.ResultSet;
 import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import org.apache.struts2.ServletActionContext;
 
 /**
  *
@@ -621,8 +624,10 @@ public class CheckAction {
             ketqua = "pass";
             trangthai = "callout callout-info";
         };
-        Map sessionn = ActionContext.getContext().getSession();
-        String id = (String)sessionn.get("ID");
+        HttpServletRequest request = ServletActionContext.getRequest();
+        
+        HttpSession session = request.getSession();
+        String id = (String)session.getAttribute("ID");
         ConnectDBClass conn = new ConnectDBClass();
         String sql = "INSERT INTO `bangdiem`( `iduser`, `diem`) VALUES ('"+id+"','"+diem+"')";
         conn.thucThiCauLenhSQL(sql);

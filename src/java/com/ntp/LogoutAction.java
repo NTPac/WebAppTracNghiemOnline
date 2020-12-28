@@ -7,6 +7,9 @@ package com.ntp;
 
 import com.opensymphony.xwork2.ActionContext;
 import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import org.apache.struts2.ServletActionContext;
 
 /**
  *
@@ -17,9 +20,11 @@ public class LogoutAction {
     }
     
     public String execute() throws Exception {
-        Map session = ActionContext.getContext().getSession();
+        HttpServletRequest request = ServletActionContext.getRequest();
         
-        session.remove("ID");
+        HttpSession session = request.getSession();
+
+        session.invalidate();
         return "T";
     }
     

@@ -29,8 +29,7 @@
   <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
   <link rel="icon" href="dist/img/icon.png">
   <%
-        Map sessionn = ActionContext.getContext().getSession();
-        String id = (String)sessionn.get("ID");
+        String id = (String)session.getAttribute("ID");
 	ConnectDBClass con = new ConnectDBClass();
 	ResultSet rs = con.chonDuLieuTuDTB("SELECT * FROM `account` WHERE `IDUser` = '"+id+"'");
         String anhString = null;

@@ -29,8 +29,7 @@
   <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
   <link rel="icon" href="dist/img/icon.png">
   <%
-        Map sessionn = ActionContext.getContext().getSession();
-        String id = (String)sessionn.get("ID");
+        String id = (String)session.getAttribute("ID");
 	ConnectDBClass con = new ConnectDBClass();
 	ResultSet rs = con.chonDuLieuTuDTB("SELECT * FROM `account` WHERE `IDUser` = '"+id+"'");
         String anhString = null;
@@ -68,7 +67,7 @@
               <%=anhString%>
           </div>
         <div class="pull-left info">
-            <p><a href="./"><%=rs.getString(2)%><a/></p>
+            <p><a href="Profilejsp.jsp"><%=rs.getString(2)%><a/></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
           

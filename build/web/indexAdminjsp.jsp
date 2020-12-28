@@ -3,6 +3,11 @@
     Created on : Dec 10, 2020, 9:02:05 PM
     Author     : Administrator
 --%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.Arrays"%>
+<%@page import="java.lang.String"%>
+<%@page import="java.util.List"%>
+<%@page import="com.ntp.StudentClass"%>
 <%@page import="com.opensymphony.xwork2.ActionContext"%>
 <%@page import="java.util.Map"%>
 <%@page import="java.sql.ResultSet"%>
@@ -29,8 +34,7 @@
   <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
   <link rel="icon" href="dist/img/icon.png">
   <%
-        Map sessionn = ActionContext.getContext().getSession();
-        String id = (String)sessionn.get("ID");
+        String id = (String)session.getAttribute("ID");
 	ConnectDBClass con = new ConnectDBClass();
 	ResultSet rs = con.chonDuLieuTuDTB("SELECT * FROM `account` WHERE `IDUser` = '"+id+"'");
         String anhString = null;
@@ -44,7 +48,8 @@
                 }else{
                     anhString = "<img src='dist/img/avatar3.png' class='user-image' alt='"+rs.getString(2)+"' title='"+rs.getString(2)+"'>";}
             }
-        }
+        };
+        ResultSet rs2 = con.chonDuLieuTuDTB("SELECT `IDUser`, `FullName`, `gender`, `Email`, `address`, `phone` FROM `account` WHERE `role` = 'Student'");
                 %>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -81,14 +86,14 @@
      	  <li class="treeview">
           <a href="LamBaijsp.jsp">
             <i class="fa fa-file-text"></i>
-            Test
+            Student Management
    
           </a>
           </li>
           <li class="treeview">
           <a href="ScoreBoardjsp.jsp">
              <i class="fa fa-circle-o"></i> 
-             Score board
+             Question Management
          </a>    
         </li>
         <li class="treeview">
@@ -105,166 +110,115 @@
   <div class="content-wrapper">
     <section class="content-header">
       <h1>
-        Dashboard
+        STUDENT LIST
       
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
+        <li><a href="./"><i class="glyphicon glyphicon-home"></i> Home</a></li>
+        <li class="active">Student list</li>
       </ol>
     </section>
 
     <section class="content">
+    
       <div class="row">
-        <div class="col-lg-3 col-xs-6">
-          <div class="small-box bg-aqua">
-            <div class="inner">
-              <h3></h3>
-
-              <p>Registered Students</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-user"></i>
-            </div>
-            <a href="students.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <div class="col-lg-3 col-xs-6">
-          <div class="small-box bg-orange">
-            <div class="inner">
-              <h3><sup style="font-size: 20px"></sup></h3>
-
-              <p>Students Attended</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-check"></i>
-            </div>
-            <a href="results.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <div class="col-lg-3 col-xs-6">
-          <div class="small-box bg-green">
-            <div class="inner">
-              <h3></h3>
-
-              <p>Pass Students</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-thumbs-o-up"></i>
-            </div>
-            <a href="results.php?ref=PASS" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <div class="col-lg-3 col-xs-6">
-          <div class="small-box bg-red">
-            <div class="inner">
-              <h3></h3>
-
-              <p>Fail Students</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-thumbs-o-down"></i>
-            </div>
-            <a href="results.php?ref=FAIL" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <section class="col-lg-7">
+        <section class="col-lg-12">
 
           <div class="box box-info">
             <div class="box-header">
-              <i class="fa fa-graduation-cap"></i>
-
-              <h3 class="box-title">School Information</h3>
-	
+              <i class="glyphicon glyphicon-list-alt"></i>
+              <h3 class="box-title">STUDENT</h3>
+              <a href="#">add</a>
 
             </div>
-            <div class="box-body">
-
-              <form action="update_school.php" method="post">
-                <div class="form-group">
-                  <input type="text" class="form-control" name="name" value="" placeholder="School Name" required>
-                </div>
-                <div class="form-group">
-                  <input type="email" class="form-control" name="email" value="" placeholder="School Email" required>
-                </div>
-				 <div class="form-group">
-                  <input type="text" class="form-control" name="address" value="" placeholder="School Address" required>
-                </div>
-				<div class="form-group">
-                  <input type="text" class="form-control" name="phone" value="" placeholder="School Phone" required>
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" name="slogan" value="" placeholder="School Slogan" required>
-                </div>
-              
-              
-            </div>
-            <div class="box-footer clearfix">
-              <button type="submit" class="pull-right btn btn-default" name="upschool" id="sendEmail">Update School Information
-                <i class="fa fa-arrow-circle-up"></i></button>
-            </div>
-			</form>
-          </div>
-
-		  <div class="box box-primary">
-            <div class="box-header" style="cursor: move;">
-              <i class="ion ion-clipboard"></i>
-
-              <h3 class="box-title">Recent Registred Students</h3>
-            </div>
-            <div class="box-body">
-              <ul class="todo-list">
-
-              </ul>
-            </div
+            <div class="box-body p">
+		<table class="table">
+                <tbody><tr>
+                  <th>ID</th>
+                  <th>Full Name</th>
+                  <th>Gender</th>
+		<th>Email</th>
+			<th>Address</th>
+		<th>Phone</th>
+                <th>Option</th>
+                </tr>
+               <tbody>
+                   <%  /*StudentClass [] student = new StudentClass[100];
+                   int i = 0;
+                   while (rs2.next()){
+                       
+                       student[i].setId(rs2.getString(1));
+                       student[i].setFname(rs2.getString(2));
+                       student[i].setGender(rs2.getString(3));
+                       student[i].setEmail(rs2.getString(4));
+                       student[i].setAddress(rs2.getString(5));
+                       student[i].setPhone(rs2.getString(6));
+                       i++;
+                   }
+            List<StudentClass> list = Arrays.asList(student);
+            int currentpage=1;
+            int count=i;
+      
+            int recordPerPage=4;
            
-          </div>
-        </section>
-
-        <section class="col-lg-5">
-		<div class="box box-info">
-            <div class="box-header">
-              <i class="fa fa-image"></i>
-
-              <h3 class="box-title">
-                School Logo
-              </h3>
-			  
-			 <hr>
-            </div>
-            <div class="box-body">
-
+            int paging=(int)Math.ceil((double)count/recordPerPage);
+            int startRecord=0;
+            if(request.getParameter("currentpage")!=null){
+               currentpage=Integer.parseInt(request.getParameter("currentpage"));
+               startRecord=(currentpage-1)*recordPerPage;
+            }
+            else{
+               startRecord=0;
+            }
+            
+            List<StudentClass> listpro=new ArrayList<StudentClass>();
+            for(int t=0;t<list.size();t++){
+                if(i>=startRecord&&i<startRecord+4){
+                    listpro.add(list.get(i));
+                }
+            }
+            for(StudentClass item:listpro){
+            */
+                       int i = 0;
+                       while(rs2.next()){  i++;%>
+			<tr>
+                            <td><p><%=rs2.getString(1)%></p></td>
+                            <td><p><%=rs2.getString(2)%></p></td>
+                            <td><p><%=rs2.getString(3)%></p></td>
+                            <td><p><%=rs2.getString(4)%></p></td>
+                            <td><p><%=rs2.getString(5)%></p></td>
+                            <td><p><%=rs2.getString(6)%></p></td>
+		    <td>
+                        <a  class="btn btn-block btn-primary btn-xs" href="#"><i class="fa fa-edit"></i></a>
+                        <a  class="btn btn-block btn-danger btn-xs" href="#"><i class="fa fa-trash-o"></i></a>
+			
+                    </td>
+</tr>     <% };
+            if(i==0){
+%>
+<div class="callout callout-danger">
+        <h4>You have not registered any student</h4>
+        Registered student will be shown here
+      </div>
+               <%}%>
+			   
+              </tbody></table>
+ 
+              <ul class="pagination">
+ <li class="paginate_button">
+     <a href="" ></a>
+ </li>		 
+			  </ul>
+              
             </div>
         
-            <div class="box-footer no-border">
-            <form action="update_school_logo.php" method="POST" enctype="multipart/form-data">
-			Update School Logo <input type="file" name="f1" accept="image/*" required><br>
-			
-			     <button type="submit" class="btn btn-default" name="uplogo" id="sendEmail">Update School Logo
-                <i class="fa fa-arrow-circle-up"></i></button>
 			</form>
-            </div>
           </div>
-          <div class="box box-solid bg-green-gradient">
-            <div class="box-header">
-              <i class="fa fa-calendar"></i>
-
-              <h3 class="box-title">Calendar</h3>
-
-            </div>
-            <div class="box-body no-padding">
-              <div id="calendar" style="width: 100%"></div>
-            </div>
-
-          </div>
-
         </section>
       </div>
 
     </section>
-  </div> 
+      </div>
       </div>
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
