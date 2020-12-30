@@ -132,6 +132,7 @@
 
             </div>
             <div class="box-body p">
+                <form action="deleteQuestion" method="GET">
 		<table class="table">
                 <tbody><tr>
                   <th>ID</th>
@@ -194,7 +195,7 @@
                             <td><p><%=rs2.getString(8)%></p></td>
 		    <td>
                         <a class="btn btn-block btn-primary btn-xs" href="addQuestionjsp.jsp?idQ=<%=rs2.getString(1)%>"><i class="fa fa-edit"></i></a>
-                        <a name ="idQ" value="<%=rs2.getString(1)%>" class="btn btn-block btn-danger btn-xs" href="deleteQuestion"><i class="fa fa-trash-o"></i></a>
+                        <button name ="idQ" value="<%=rs2.getString(1)%>" class="btn btn-block btn-danger btn-xs" ><i class="fa fa-trash-o"></i></button>
 			
                     </td>
 </tr>     <% };
@@ -207,16 +208,12 @@
                <%}%>
 			   
               </tbody></table>
- 
-              <ul class="pagination">
- <li class="paginate_button">
-     <a href="" ></a>
- </li>		 
-			  </ul>
+                </form>
+              
               
             </div>
         
-			</form>
+			
           </div>
         </section>
       </div>

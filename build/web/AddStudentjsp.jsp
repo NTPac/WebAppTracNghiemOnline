@@ -152,7 +152,7 @@
 		
 
             </div>
-              <form action="<%=nameBtn%>Std" method="post">
+              <form action="<%=nameBtn%>Std" method="GET">
             <div class="box-body">
                 <input hidden="true"  name="idStd"  value="<%=idStd%>">
                 <div class="form-group">

@@ -12,13 +12,24 @@ package com.ntp;
 public class DeleteStdAction {
     
     private String idStd;
+
+    public String getIdStd() {
+        return idStd;
+    }
+
+    public void setIdStd(String idStd) {
+        this.idStd = idStd;
+    }
+    
+    
     public DeleteStdAction() {
     }
     
     public String execute() throws Exception {
         ConnectDBClass conn = new ConnectDBClass();
+        
         String sql;
-        sql = "DELETE FROM `account` WHERE `ID` = '"+idStd+"'";
+        sql = "DELETE FROM `account` WHERE `IDUser` = '"+idStd+"'";
         
         if(conn.thucThiCauLenhSQL(sql))
             return "T";

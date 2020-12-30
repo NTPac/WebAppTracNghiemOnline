@@ -132,15 +132,16 @@
 
             </div>
             <div class="box-body p">
+                <form action="deleteStudent">
 		<table class="table">
                 <tbody><tr>
                   <th>ID</th>
                   <th>Full Name</th>
                   <th>Gender</th>
-		<th>Email</th>
-			<th>Address</th>
-		<th>Phone</th>
-                <th>Option</th>
+                  <th>Email</th>
+                  <th>Address</th>
+		  <th>Phone</th>
+                  <th>Option</th>
                 </tr>
                <tbody>
                    <%  /*StudentClass [] student = new StudentClass[100];
@@ -190,7 +191,7 @@
                             <td><p><%=rs2.getString(6)%></p></td>
 		    <td>
                         <a class="btn btn-block btn-primary btn-xs" href="AddStudentjsp.jsp?idStd=<%=rs2.getString(1)%>"><i class="fa fa-edit"></i></a>
-                        <a name ="idStd" value="<%=rs2.getString(1)%>" class="btn btn-block btn-danger btn-xs" href="deleteStudent"><i class="fa fa-trash-o"></i></a>
+                        <button name ="idStd" value="<%=rs2.getString(1)%>" class="btn btn-block btn-danger btn-xs" ><i class="fa fa-trash-o"></i></button>
 			
                     </td>
 </tr>     <% };
@@ -203,7 +204,7 @@
                <%}%>
 			   
               </tbody></table>
-              
+                </form>
             </div>
           </div>
         </section>

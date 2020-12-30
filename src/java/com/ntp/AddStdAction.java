@@ -64,7 +64,7 @@ public class AddStdAction {
         ResultSet rs = conn.chonDuLieuTuDTB("SELECT COUNT(*) FROM account");
         String id = "";
         if(rs.next())
-            id = "S"+ rs.getString(1);
+            id = creatID(rs.getString(1));
         
         String sql;
         sql = "INSERT INTO `account` (`IDUser`, `FullName`, `gender`, `passWord`, `role`, `Email`, `address`, `avatar`, `phone`) VALUES ('"+id+"', '"+name+"', '"+gender+"', '123456', 'Student', '"+email+"', '"+address+"', NULL, '"+phone+"')";
@@ -77,4 +77,20 @@ public class AddStdAction {
         
     }
     
+    
+    private String creatID(String y)
+    {
+        int x = Integer.parseInt(y);
+        String p="S" ;
+        if(x<10000)
+            p=p+"0";
+        if(x<1000)
+            p=p+"0";
+        if(x<100)
+            p=p+"0";
+        if(x<10)
+            p=p+"0";
+        p=p+y;
+        return p;
+    }
 }

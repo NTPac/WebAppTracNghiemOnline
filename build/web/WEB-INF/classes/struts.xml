@@ -20,6 +20,25 @@
             <result name="T">/indexAdminjsp.jsp</result>
             <result name="F">/indexAdminjsp.jsp</result>
         </action>
-
-    </package>
+        <action name="RegisterStd" class="com.ntp.AddStdAction" method="execute">
+            <result name="T">/indexAdminjsp.jsp</result>
+            <result name="F">/indexAdminjsp.jsp</result>
+        </action>
+        <action name="EditStd" class="com.ntp.editStdAction" method="execute">
+            <result name="T">/indexAdminjsp.jsp</result>
+            <result name="F">/indexAdminjsp.jsp</result>
+        </action>
+        <action name="deleteQuestion" class="com.ntp.DeleteQuestionAction" method="execute">
+            <result name="T">/QMjsp.jsp</result>
+            <result name="F">/QMjsp.jsp</result>
+        </action>
+        <action name="RegisterQ" class="com.ntp.AddQuestionAction" method="execute">
+            <result name="T">/QMjsp.jsp</result>
+            <result name="F">/QMjsp.jsp</result>
+        </action>
+        <action name="EditQ" class="com.ntp.EditQuestionAction" method="execute">
+            <result name="T">/QMjsp.jsp</result>
+            <result name="F">/QMjsp.jsp</result>
+        </action>
+     </package>
 </struts>
