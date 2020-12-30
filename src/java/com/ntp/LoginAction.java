@@ -5,11 +5,7 @@
  */
 package com.ntp;
 
-import com.opensymphony.xwork2.ActionContext;
-import static com.sun.corba.se.spi.presentation.rmi.StubAdapter.request;
 import java.sql.ResultSet;
-import java.util.Map;
-import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.apache.struts2.ServletActionContext;
@@ -23,18 +19,7 @@ public class LoginAction {
     private String un;
     private String pw;
     private String useridString = null;
-    private Map sessionn ;
-   
-
-
-    public Map getSession() {
-        return sessionn;
-    }
-
-    public void setSession(Map session) {
-        this.sessionn = session;
-    }
-
+ 
     public String getUseridString() {
         return useridString;
     }
@@ -72,8 +57,6 @@ public class LoginAction {
         String resultString;
         if(rs.next()){
             useridString = null;
-            /*sessionn = ActionContext.getContext().getSession();
-            sessionn.put("ID", un);*/
             session.setAttribute("ID", un);
             String role = rs.getString("role");
             if("Admin".equals(role))

@@ -84,14 +84,14 @@
 
         <li>
      	  <li class="treeview">
-          <a href="LamBaijsp.jsp">
+          <a href="indexAdminjsp.jsp">
             <i class="fa fa-file-text"></i>
             Student Management
    
           </a>
           </li>
           <li class="treeview">
-          <a href="ScoreBoardjsp.jsp">
+          <a href="QMjsp.jsp">
              <i class="fa fa-circle-o"></i> 
              Question Management
          </a>    
@@ -128,7 +128,7 @@
             <div class="box-header">
               <i class="glyphicon glyphicon-list-alt"></i>
               <h3 class="box-title">STUDENT</h3>
-              <a href="#">add</a>
+              <a href="AddStudentjsp.jsp">add</a>
 
             </div>
             <div class="box-body p">
@@ -189,8 +189,8 @@
                             <td><p><%=rs2.getString(5)%></p></td>
                             <td><p><%=rs2.getString(6)%></p></td>
 		    <td>
-                        <a  class="btn btn-block btn-primary btn-xs" href="#"><i class="fa fa-edit"></i></a>
-                        <a  class="btn btn-block btn-danger btn-xs" href="#"><i class="fa fa-trash-o"></i></a>
+                        <a class="btn btn-block btn-primary btn-xs" href="AddStudentjsp.jsp?idStd=<%=rs2.getString(1)%>"><i class="fa fa-edit"></i></a>
+                        <a name ="idStd" value="<%=rs2.getString(1)%>" class="btn btn-block btn-danger btn-xs" href="deleteStudent"><i class="fa fa-trash-o"></i></a>
 			
                     </td>
 </tr>     <% };
@@ -203,16 +203,8 @@
                <%}%>
 			   
               </tbody></table>
- 
-              <ul class="pagination">
- <li class="paginate_button">
-     <a href="" ></a>
- </li>		 
-			  </ul>
               
             </div>
-        
-			</form>
           </div>
         </section>
       </div>
