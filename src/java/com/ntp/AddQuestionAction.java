@@ -6,6 +6,7 @@
 package com.ntp;
 
 import java.sql.ResultSet;
+import java.util.Random;
 
 /**
  *
@@ -78,13 +79,17 @@ public class AddQuestionAction {
     
     public String execute() throws Exception {
         ConnectDBClass conn = new ConnectDBClass();
-        ResultSet rs = conn.chonDuLieuTuDTB("SELECT COUNT(*) FROM `nganhangcauhoi`");
-        String id = "";
-        if(rs.next())
-            id = creatID(rs.getString(1));
+        ResultSet rs ;
+        String id = creatID();
+        rs=conn.chonDuLieuTuDTB("SELECT `IDUser` FROM `account` WHERE `IDUser`='"+id+"'");
+        while(rs.next())
+        {
+            id = creatID();
+            rs=conn.chonDuLieuTuDTB("SELECT `IDUser` FROM `account` WHERE `IDUser`='"+id+"'");
+        }
         
         String sql;
-        sql = "INSERT INTO `nganhangcauhoi`(`ID`, `Level`, `Noidung`, `TraLoi1`, `TraLoi2`, `TraLoi3`, `TraLoi4`, `DapAn`) VALUES ('"+id+"','"+level+"','"+content+"','"+option1+"','"+option2+"','"+option3+"','"+option4+"','"+answer+"')";
+        sql = "INSERT INTO `nganhangcauhoi`(`ID`, `Level`, `Noidung`, `TraLoi1`, `TraLoi2`, `TraLoi3`, `TraLoi4`, `DapAn`) VALUES ('"+id+"','"+level+"',N'"+content+"',N'"+option1+"',N'"+option2+"',N'"+option3+"',N'"+option4+"','"+answer+"')";
         
         if(conn.thucThiCauLenhSQL(sql))
             return "T";
@@ -92,20 +97,11 @@ public class AddQuestionAction {
         return "F";
     }
     
-    private String creatID(String y)
+    private String creatID()
     {
-        int x = Integer.parseInt(y);
-        String p="Q" ;
-        if(x<10000)
-            p=p+"0";
-        if(x<1000)
-            p=p+"0";
-        if(x<100)
-            p=p+"0";
-        if(x<10)
-            p=p+"0";
-        p=p+y;
-        return p;
+        Random generator = new Random();
+        int i = generator.nextInt(99999);
+        return "Q"+Integer.toString(i);
     }
     
 }

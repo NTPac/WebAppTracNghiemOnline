@@ -6,6 +6,7 @@
 package com.ntp;
 
 import java.sql.ResultSet;
+import java.util.Random;
 
 /**
  *
@@ -61,13 +62,18 @@ public class AddStdAction {
     
     public String execute() throws Exception {
         ConnectDBClass conn = new ConnectDBClass();
-        ResultSet rs = conn.chonDuLieuTuDTB("SELECT COUNT(*) FROM account");
-        String id = "";
-        if(rs.next())
-            id = creatID(rs.getString(1));
+        ResultSet rs ;
+        String id = creatID();
+        rs=conn.chonDuLieuTuDTB("SELECT `IDUser` FROM `account` WHERE `IDUser`='"+id+"'");
+        while(rs.next())
+        {
+            id = creatID();
+            rs=conn.chonDuLieuTuDTB("SELECT `IDUser` FROM `account` WHERE `IDUser`='"+id+"'");
+        }
+            
         
         String sql;
-        sql = "INSERT INTO `account` (`IDUser`, `FullName`, `gender`, `passWord`, `role`, `Email`, `address`, `avatar`, `phone`) VALUES ('"+id+"', '"+name+"', '"+gender+"', '123456', 'Student', '"+email+"', '"+address+"', NULL, '"+phone+"')";
+        sql = "INSERT INTO `account` (`IDUser`, `FullName`, `gender`, `passWord`, `role`, `Email`, `address`, `avatar`, `phone`) VALUES ('"+id+"', N'"+name+"', '"+gender+"', '123456', 'Student', '"+email+"', N'"+address+"', NULL, '"+phone+"')";
         
         if(conn.thucThiCauLenhSQL(sql))
             return "T";
@@ -78,19 +84,10 @@ public class AddStdAction {
     }
     
     
-    private String creatID(String y)
+    private String creatID()
     {
-        int x = Integer.parseInt(y);
-        String p="S" ;
-        if(x<10000)
-            p=p+"0";
-        if(x<1000)
-            p=p+"0";
-        if(x<100)
-            p=p+"0";
-        if(x<10)
-            p=p+"0";
-        p=p+y;
-        return p;
+        Random generator = new Random();
+        int i = generator.nextInt(99999);
+        return "S"+Integer.toString(i);
     }
 }
