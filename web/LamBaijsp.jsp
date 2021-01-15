@@ -8,6 +8,15 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+    <%
+        
+    if(session.getAttribute("thoigian")==null){
+        session.setAttribute("thoigian", "90:00");
+    };
+    
+    String thoigian = session.getAttribute("thoigian").toString();
+
+%>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,6 +25,61 @@
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
   <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+  <script>
+        var down;
+	var min1,sec1;
+	var cmin1,csec1,cmin2,csec2;
+	function Minutes(data) 
+	{
+		for(var i=0;i<data.length;i++) 
+		if(data.substring(i,i+1)==":") 
+		break;  
+		return(data.substring(0,i)); 
+	}
+	function Seconds(data) 
+	{        
+		for(var i=0;i<data.length;i++) 
+		if(data.substring(i,i+1)==":") 
+		break;  
+		return(data.substring(i+1,data.length)); 
+	}
+	
+	function Display(min,sec) 
+	{     
+		var disp;       
+		if(min<=9) 
+			disp=" 0";   
+		else disp=" ";  
+		disp+=min+":";  
+		if(sec<=9) 
+			disp+="0"+sec;       
+		else disp+=sec; 
+		return(disp); 
+	}
+	
+	function Down(tmp) 
+	{       
+		cmin2=1*Minutes(tmp);
+		csec2=0+Seconds(tmp);
+		DownRepeat(); 
+	}
+	function DownRepeat() 
+	{ 
+		csec2--;        
+		if(csec2==-1) 
+		{ 
+			csec2=59; cmin2--; 
+		}       
+		document.sw.disp2.value=Display(cmin2,csec2);   
+		if((cmin2==0)&&(csec2==0)) 
+		{
+			document.getElementById("form").submit();  
+			
+		}
+		else down=setTimeout("DownRepeat()",1000); 
+	}
+  </script>
+
 </head>
 <style>
 #myhead{
@@ -30,7 +94,7 @@ background-color:white;
 
 }
 </style>
-<body class="hold-transition skin-blue layout-boxed fixed sidebar-mini">
+<body class="hold-transition skin-blue layout-boxed fixed sidebar-mini" onLoad='Down("<%=thoigian%>")'>
 
 <div  id="myhead">
 <center>
@@ -50,7 +114,9 @@ KHOA CÔNG NGHỆ THÔNG TIN
 
 </div>
 <div id="myhead2" style="padding-left:20px; padding-right:20px;">
-<form action="CheckAction" method="GET">
+<form id="form" name='sw' action="CheckAction" method="GET">
+    <input readonly="true" type='text' name='disp2' size='7' >
+
         <%
 	ConnectDBClass con = new ConnectDBClass();
 	ResultSet rs = con.chonDuLieuTuDTB("SELECT * FROM `nganhangcauhoi`");
@@ -74,7 +140,7 @@ KHOA CÔNG NGHỆ THÔNG TIN
 </table>
 <button type="submit" onclick="return confirm('Are you sure you want to submit your assessment ?')"  class="btn btn-primary">Submit Assessment</button><br><br>
 </form>
-
+</div>
 <script type="text/javascript" src="plugins/jQuery/jquery-2.2.3.min.js"></script>
 <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="plugins/slimScroll/jquery.slimscroll.min.js"></script>

@@ -73,7 +73,7 @@
               <%=anhString%>
           </div>
         <div class="pull-left info">
-            <p><a href="Profile"><%=rs.getString(2)%><a/></p>
+            <p><a href="Profilejsp.jsp"><%=rs.getString(2)%><a/></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
           
