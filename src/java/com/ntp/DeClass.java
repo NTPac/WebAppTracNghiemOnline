@@ -12,25 +12,20 @@ import java.sql.ResultSet;
  * @author Administrator
  */
 public class DeClass {
-    private final ConnectDBClass connDB = new ConnectDBClass();
+    private String name ,op1,op2,op3,op4,ans,uop;
+    
 
     public DeClass() {
     }
-    
-    
-    @SuppressWarnings("empty-statement")
-    public boolean checkDB(String qs, String op) throws Exception{
-        try {
-            String sql = "SELECT * FROM nganhangcauhoi WHERE ID = '"+ qs +"' and '"+op+"'";
-            ResultSet rs = connDB.chonDuLieuTuDTB(sql);
-            if(rs.next()){ 
-                return true;
-                };
-            } 
-        catch (Exception e) {
-        }
-        return false;
+
+    public DeClass(String name, String op1, String op2, String op3, String op4, String ans, String uop) {
+        this.name = name;
+        this.op1 = op1;
+        this.op2 = op2;
+        this.op3 = op3;
+        this.op4 = op4;
+        this.ans = ans;
+        this.uop = uop;
     }
-    
     
 }

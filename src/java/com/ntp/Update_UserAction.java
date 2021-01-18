@@ -80,14 +80,13 @@ public class Update_UserAction {
     public String execute() throws Exception {
         Map sessionn = ActionContext.getContext().getSession();
         String id = (String) sessionn.get("ID");
+        sta = "Update fail";
         String sql = "UPDATE `account` SET `FullName`='"+name+"',`gender`='"+gender+"',`passWord`='"+password1+"',`Email`='"+email+"',`address`='"+address+"',`phone`= '"+phone+"' WHERE `IDUser`='"+id+"'";
         if(connDB.thucThiCauLenhSQL(sql))
         {
-            sta = null;
-            return "T";
+            sta = "Update successfully";
         };
-        sta = "Loi cap nhap";
-        return "F";
+        return "T";
     }
     
 }

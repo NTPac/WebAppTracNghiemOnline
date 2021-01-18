@@ -12,6 +12,7 @@ package com.ntp;
 public class DeleteQuestionAction {
     
     private String idQ;
+    private String trangthaiq=null;
 
     public String getIdQ() {
         return idQ;
@@ -19,6 +20,14 @@ public class DeleteQuestionAction {
 
     public void setIdQ(String idQ) {
         this.idQ = idQ;
+    }
+
+    public String getTrangthaiq() {
+        return trangthaiq;
+    }
+
+    public void setTrangthaiq(String trangthaiq) {
+        this.trangthaiq = trangthaiq;
     }
     
     
@@ -30,9 +39,11 @@ public class DeleteQuestionAction {
         String sql;
         sql = "DELETE FROM `nganhangcauhoi` WHERE `ID` = '"+idQ+"'";
         
-        if(conn.thucThiCauLenhSQL(sql))
+        if(conn.thucThiCauLenhSQL(sql)){
+            trangthaiq="Deleted successfully question "+idQ;
             return "T";
-        
+        }
+        trangthaiq="Deleted failed question "+idQ;
         return "F";
     }
     

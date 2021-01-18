@@ -12,13 +12,21 @@ package com.ntp;
 public class DeleteStdAction {
     
     private String idStd;
-
+    private String trangthais;
     public String getIdStd() {
         return idStd;
     }
 
     public void setIdStd(String idStd) {
         this.idStd = idStd;
+    }
+
+    public String getTrangthais() {
+        return trangthais;
+    }
+
+    public void setTrangthais(String trangthais) {
+        this.trangthais = trangthais;
     }
     
     
@@ -31,9 +39,11 @@ public class DeleteStdAction {
         String sql;
         sql = "DELETE FROM `account` WHERE `IDUser` = '"+idStd+"'";
         
-        if(conn.thucThiCauLenhSQL(sql))
+        if(conn.thucThiCauLenhSQL(sql)){
+            trangthais="Deleted successfully user "+idStd;
             return "T";
-        
+        }
+        trangthais="Deleted failed user "+idStd;
         return "F";
     }
     

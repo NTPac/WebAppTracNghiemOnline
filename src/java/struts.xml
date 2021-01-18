@@ -8,7 +8,11 @@
         <action name="CheckAction" class="com.ntp.CheckAction" method="execute">
             <result name="T">/KetQuajsp.jsp</result>
         </action>
+        <action name="Update_UserAction" class="com.ntp.Update_UserAction" method="execute">
+            <result name="T">/Profilejsp.jsp</result>
+        </action>
         <action name="login" class="com.ntp.LoginAction" method="execute">
+            <result name="input">/Loginjsp.jsp</result>
             <result name="T">/Profilejsp.jsp</result>
             <result name="A">/indexAdminjsp.jsp</result>
             <result name="F">/Loginjsp.jsp</result>

@@ -5,6 +5,7 @@
  */
 package com.ntp;
 
+import com.opensymphony.xwork2.ActionSupport;
 import java.sql.ResultSet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -14,19 +15,22 @@ import org.apache.struts2.ServletActionContext;
  *
  * @author Administrator
  */
-public class LoginAction {
+public class LoginAction extends ActionSupport{
     private final ConnectDBClass connDB = new ConnectDBClass();
     private String un;
     private String pw;
-    private String useridString = null;
- 
-    public String getUseridString() {
-        return useridString;
+    private String trangthai = null;
+
+    public String getTrangthai() {
+        return trangthai;
     }
 
-    public void setUseridString(String useridString) {
-        this.useridString = useridString;
+    public void setTrangthai(String trangthai) {
+        this.trangthai = trangthai;
     }
+ 
+    
+    
     public String getUn() {
         return un;
     }
@@ -52,11 +56,12 @@ public class LoginAction {
         HttpSession session = request.getSession();
         
         
+        trangthai = "Dang nhap that bai";
         String sql = "SELECT `IDUser`, `role` FROM `account` WHERE `IDUser` = '"+un+"' and `passWord` = '"+pw+"'";
         ResultSet rs = connDB.chonDuLieuTuDTB(sql);
-        String resultString;
+        String resultString = "F";
         if(rs.next()){
-            useridString = null;
+            trangthai = null;
             session.setAttribute("ID", un);
             String role = rs.getString("role");
             if("Admin".equals(role))
@@ -64,11 +69,15 @@ public class LoginAction {
             else
             resultString = "T";           
         }
-        else{
-            useridString = "Dang nhap that bai";
-            resultString = "F";
-        }
+        
         return resultString;
     }
+
+    @Override
+    public void validate() {
+        if(this.trangthai != null)
+            addFieldError("report", trangthai);
+    }
+    
     
 }

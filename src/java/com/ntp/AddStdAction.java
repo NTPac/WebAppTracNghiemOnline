@@ -14,7 +14,7 @@ import java.util.Random;
  */
 public class AddStdAction {
     private String name , email , address , gender , phone ;
-
+    private String trangthais;
     public String getName() {
         return name;
     }
@@ -54,6 +54,14 @@ public class AddStdAction {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
+    public String getTrangthais() {
+        return trangthais;
+    }
+
+    public void setTrangthais(String trangthais) {
+        this.trangthais = trangthais;
+    }
     
     
     public AddStdAction() {
@@ -75,9 +83,11 @@ public class AddStdAction {
         String sql;
         sql = "INSERT INTO `account` (`IDUser`, `FullName`, `gender`, `passWord`, `role`, `Email`, `address`, `avatar`, `phone`) VALUES ('"+id+"', N'"+name+"', '"+gender+"', '123456', 'Student', '"+email+"', N'"+address+"', NULL, '"+phone+"')";
         
-        if(conn.thucThiCauLenhSQL(sql))
+        if(conn.thucThiCauLenhSQL(sql)){
+            trangthais="Added successfully user "+id;
             return "T";
-        
+        }
+        trangthais="Added failed user "+id;
         return "F";
         
         

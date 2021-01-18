@@ -113,6 +113,7 @@
         QUESTION LIST
       
       </h1>
+        <span style="color: red"><s:property value="trangthaiq"/></span>
       <ol class="breadcrumb">
         <li><a href="./"><i class="glyphicon glyphicon-home"></i> Home</a></li>
         <li class="active">Question list</li>
@@ -195,7 +196,7 @@
                             <td><p><%=rs2.getString(8)%></p></td>
 		    <td>
                         <a class="btn btn-block btn-primary btn-xs" href="addQuestionjsp.jsp?idQ=<%=rs2.getString(1)%>"><i class="fa fa-edit"></i></a>
-                        <button name ="idQ" value="<%=rs2.getString(1)%>" class="btn btn-block btn-danger btn-xs" ><i class="fa fa-trash-o"></i></button>
+                        <button name ="idQ" value="<%=rs2.getString(1)%>" onclick="return confirm('Are you sure to delete question <%=rs2.getString(1)%>?')" class="btn btn-block btn-danger btn-xs" ><i class="fa fa-trash-o"></i></button>
 			
                     </td>
 </tr>     <% };

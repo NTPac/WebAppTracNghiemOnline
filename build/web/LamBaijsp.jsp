@@ -10,11 +10,8 @@
 <html>
     <%
         
-    if(session.getAttribute("thoigian")==null){
-        session.setAttribute("thoigian", "90:00");
-    };
-    
-    String thoigian = session.getAttribute("thoigian").toString();
+ 
+    String thoigian = "90:00";
 
 %>
 <head>
@@ -119,23 +116,24 @@ KHOA CÔNG NGHỆ THÔNG TIN
 
         <%
 	ConnectDBClass con = new ConnectDBClass();
-	ResultSet rs = con.chonDuLieuTuDTB("SELECT * FROM `nganhangcauhoi`");
+	ResultSet rs = con.chonDuLieuTuDTB("SELECT * FROM nganhangcauhoi ORDER BY RAND() limit 20");
 	%>
         <table style="font-size:15px;">
             <%
                 int i = 1;
+             %>
+             <input type="hidden" name="op[0]" value="[]"/>
+             <%
             while(rs.next()){
-                if(i>20)
-                    break;
             %>
-            <tr><td><%=Integer.toString(i) %>: <%=rs.getString(3) %></td>
-            <tr><td><input type="radio" name="op<%=Integer.toString(i)%>" value="A"/>A.<%=rs.getString(4) %><br></td></tr>
-            <tr><td><input type="radio" name="op<%=Integer.toString(i)%>" value="B"/>B.<%=rs.getString(5) %><br></td></tr>
-            <tr><td><input type="radio" name="op<%=Integer.toString(i)%>" value="C"/>C.<%=rs.getString(6) %><br></td></tr>
-            <tr><td><input type="radio" name="op<%=Integer.toString(i)%>" value="D"/>D.<%=rs.getString(7) %><br></td></tr>
+            <tr><td><%=i%>: <%=rs.getString(3) %></td>
+            <tr><td><input type="radio" name="op[<%=i%>]" value="A"/>A.<%=rs.getString(4) %><br></td></tr>
+            <tr><td><input type="radio" name="op[<%=i%>]" value="B"/>B.<%=rs.getString(5) %><br></td></tr>
+            <tr><td><input type="radio" name="op[<%=i%>]" value="C"/>C.<%=rs.getString(6) %><br></td></tr>
+            <tr><td><input type="radio" name="op[<%=i%>]" value="D"/>D.<%=rs.getString(7) %><br></td></tr>
             <tr><td colspan="10"><hr></td></tr>
-            <tr><td><input type="hidden" name="qs<%=Integer.toString(i)%>" value="<%=rs.getString(1)%>"/></td></tr>
-            <tr><td><input type="hidden" name="an<%=Integer.toString(i)%>" value="<%=rs.getString(8)%>"/></td></tr>
+            <tr><td><input type="hidden" name="qs" value="<%=rs.getString(1)%>"/></td></tr>
+            <tr><td><input type="hidden" name="an" value="<%=rs.getString(8)%>"/></td></tr>
                 <%i++;}%>
 </table>
 <button type="submit" onclick="return confirm('Are you sure you want to submit your assessment ?')"  class="btn btn-primary">Submit Assessment</button><br><br>

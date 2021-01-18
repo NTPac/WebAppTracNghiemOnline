@@ -12,7 +12,8 @@ package com.ntp;
 public class EditQuestionAction {
     
     private String idQ, content , level , option1 ,option2, option3, option4 , answer ;
-
+    private String trangthaiq;
+    
     public String getIdQ() {
         return idQ;
     }
@@ -76,6 +77,14 @@ public class EditQuestionAction {
     public void setAnswer(String answer) {
         this.answer = answer;
     }
+
+    public String getTrangthaiq() {
+        return trangthaiq;
+    }
+
+    public void setTrangthaiq(String trangthaiq) {
+        this.trangthaiq = trangthaiq;
+    }
     
     public EditQuestionAction() {
     }
@@ -85,9 +94,11 @@ public class EditQuestionAction {
         String sql;
         sql = "UPDATE `nganhangcauhoi` SET `Level`='"+level+"',`Noidung`='"+content+"',`TraLoi1`='"+option1+"',`TraLoi2`='"+option2+"',`TraLoi3`='"+option3+"',`TraLoi4`='"+option4+"',`DapAn`='"+answer+"' WHERE `ID`='"+idQ+"'";
         
-        if(conn.thucThiCauLenhSQL(sql))
+        if(conn.thucThiCauLenhSQL(sql)){
+            trangthaiq="Edited successfully question "+idQ;
             return "T";
-        
+        }
+        trangthaiq="Edited failed question "+idQ;
         return "F";
     }
     

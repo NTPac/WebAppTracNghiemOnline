@@ -13,7 +13,7 @@ import java.sql.ResultSet;
  */
 public class editStdAction {
     private String idStd, name , email , address , gender , phone ;
-
+    private String trangthais ;
     public String getIdStd() {
         return idStd;
     }
@@ -63,15 +63,25 @@ public class editStdAction {
     }
     public editStdAction() {
     }
+
+    public String getTrangthais() {
+        return trangthais;
+    }
+
+    public void setTrangthais(String trangthais) {
+        this.trangthais = trangthais;
+    }
     
     public String execute() throws Exception {
         ConnectDBClass conn = new ConnectDBClass();
         String sql;
         sql = "UPDATE `account` SET `FullName`='"+name+"',`gender`='"+gender+"',`Email`='"+email+"',`address`='"+address+"',`phone`='"+phone+"' WHERE `IDUser` = '"+idStd+"'";
         
-        if(conn.thucThiCauLenhSQL(sql))
+        if(conn.thucThiCauLenhSQL(sql)){
+            trangthais="Edited successfully user "+idStd;
             return "T";
-        
+        }
+        trangthais="Edited failed user "+idStd;
         return "F";
     }
     

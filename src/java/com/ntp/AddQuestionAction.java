@@ -15,7 +15,7 @@ import java.util.Random;
 public class AddQuestionAction {
     
     private String content , level , option1 ,option2, option3, option4 , answer ;
-
+    private String trangthaiq ="";
     public String getContent() {
         return content;
     }
@@ -71,6 +71,16 @@ public class AddQuestionAction {
     public void setAnswer(String answer) {
         this.answer = answer;
     }
+
+    public String getTrangthaiq() {
+        return trangthaiq;
+    }
+
+    public void setTrangthaiq(String trangthaiq) {
+        this.trangthaiq = trangthaiq;
+    }
+
+   
     
     
     
@@ -91,9 +101,11 @@ public class AddQuestionAction {
         String sql;
         sql = "INSERT INTO `nganhangcauhoi`(`ID`, `Level`, `Noidung`, `TraLoi1`, `TraLoi2`, `TraLoi3`, `TraLoi4`, `DapAn`) VALUES ('"+id+"','"+level+"',N'"+content+"',N'"+option1+"',N'"+option2+"',N'"+option3+"',N'"+option4+"','"+answer+"')";
         
-        if(conn.thucThiCauLenhSQL(sql))
+        if(conn.thucThiCauLenhSQL(sql)){
+            trangthaiq="Added successfully question "+id;
             return "T";
-        
+        }
+        trangthaiq="Added failed question "+id;
         return "F";
     }
     

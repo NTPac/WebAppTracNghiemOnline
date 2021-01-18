@@ -157,9 +157,21 @@
                 <div class="form-group">
                   <input type="text" class="form-control" name="name" value="<%=rs.getString(2)%>" required>
                 </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" name="gender" value="<%=rs.getString(3)%>" required>
-                </div>
+                <%      
+                        String gender = rs.getString(3);
+                        String male = "unchecked";
+                        String female = "unchecked";
+                        if(gender != ""){
+                        if(gender.equals("Male"))
+                            male = "checked";
+                        
+                        if(gender.equals("Female"))
+                            female = "checked";};
+                    %>
+                    <div class="form-group">
+                        <input type="radio" name="gender" value="Male" <%=male%> > Male
+                        <input type="radio" name="gender" value="Female" <%=female%> > Female
+                    </div>
                 <div class="form-group">
                   <input type="email" class="form-control" name="email" value="<%=rs.getString(6)%>" required>
                 </div>
@@ -190,7 +202,7 @@ function validatePassword(){
 password.onchange = validatePassword;
 confirm_password.onkeyup = validatePassword;
 </script>
-                <s:property value="sta"/>
+                <span style="color: red"><s:property value="sta"/></span>
               <div class="box-footer clearfix">
               <button type="submit" class="pull-right btn btn-default" name="upschool" id="sendEmail">Update Information
                 <i class="fa fa-arrow-circle-up"></i></button>

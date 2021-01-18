@@ -11,6 +11,7 @@
 <html>
     <head>
     <title>Login</title>
+    <s:head/>
     <meta charset="utf-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,8 +21,7 @@
 
 </head>
 <body>
-    <form action="login" method="post">
-
+    <s:form action="login" method="post">
 
         <div class="login-container animated fadeInDown">
             <div class="loginbox bg-white">
@@ -38,19 +38,21 @@
                     <div class="or">-*-</div>
                 </div>
                 <div class="loginbox-textbox">
-                    <input type="text" class="form-control" placeholder="Tên đăng nhập" name="un" id="txtTaiKhoan" value="<s:property value="useridString"/>">
+                    <input type="text" class="form-control" placeholder="Tên đăng nhập" name="un" id="txtTaiKhoan" >
                 </div>
                 <div class="loginbox-textbox">
                     <input type="password" class="form-control" placeholder="Mật khẩu" name="pw" id="txtMatKhau" onkeypress="searchKeyPress(event);">
                 </div>
                 <div class="loginbox-forgot">
-                    <span style="color:red"> </span>
+                    <span style="color:red"><s:property  value="trangthai"  /></span>
                 </div>
                 <div class="loginbox-submit">
                     <input type="submit" class="btn btn-primary btn-block" value="Đăng nhập" >
                 </div>
             </div>
         </div>
-    </form>
+    </s:form>
 </body>
 </html>
+
+    
