@@ -7,6 +7,8 @@ package com.ntp;
 
 import com.opensymphony.xwork2.ActionSupport;
 import java.sql.ResultSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.apache.struts2.ServletActionContext;
@@ -19,7 +21,7 @@ public class LoginAction extends ActionSupport{
     private final ConnectDBClass connDB = new ConnectDBClass();
     private String un;
     private String pw;
-    private String trangthai = null;
+    private String trangthai = "123";
 
     public String getTrangthai() {
         return trangthai;
@@ -56,12 +58,11 @@ public class LoginAction extends ActionSupport{
         HttpSession session = request.getSession();
         
         
-        trangthai = "Dang nhap that bai";
         String sql = "SELECT `IDUser`, `role` FROM `account` WHERE `IDUser` = '"+un+"' and `passWord` = '"+pw+"'";
         ResultSet rs = connDB.chonDuLieuTuDTB(sql);
         String resultString = "F";
         if(rs.next()){
-            trangthai = null;
+            trangthai = "";
             session.setAttribute("ID", un);
             String role = rs.getString("role");
             if("Admin".equals(role))
@@ -69,14 +70,9 @@ public class LoginAction extends ActionSupport{
             else
             resultString = "T";           
         }
-        
+        if(this.trangthai != "")
+            addFieldError("trangthai", "đăng nhập thất bại");
         return resultString;
-    }
-
-    @Override
-    public void validate() {
-        if(this.trangthai != null)
-            addFieldError("report", trangthai);
     }
     
     

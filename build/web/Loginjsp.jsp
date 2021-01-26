@@ -44,7 +44,7 @@
                     <input type="password" class="form-control" placeholder="Mật khẩu" name="pw" id="txtMatKhau" onkeypress="searchKeyPress(event);">
                 </div>
                 <div class="loginbox-forgot">
-                    <span style="color:red"><s:property  value="trangthai"  /></span>
+                    <span style="color:red"><s:fielderror name="trangthai"/></span>
                 </div>
                 <div class="loginbox-submit">
                     <input type="submit" class="btn btn-primary btn-block" value="Đăng nhập" >

@@ -11,7 +11,7 @@
     <%
         
  
-    String thoigian = "90:00";
+    String thoigian = "00:10";
 
 %>
 <head>

@@ -219,10 +219,7 @@ public class CheckAction {
                 de.add(new CheckAction(rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),an.get(i),op.get(i)));}
             
         };
-        
-        
-        
-        
+
         HttpServletRequest request = ServletActionContext.getRequest();
         
         HttpSession session = request.getSession();
